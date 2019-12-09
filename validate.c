@@ -1,24 +1,24 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 10:49:52 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/09 15:34:44 by tlouekar         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h> // REMOVE IT YOU DUMBASS
 #include "libft/includes/libft.h"
 
 char	*validate_ascii(char *piece)
 {
-	int		count;
+	int i;
+	char	*fds[fd];
+	int temp;
 
-	count = 0;
-	return (piece);
+	i = 0;
+	temp = 0;
+	while (fds[fd][i] != '\0')
+	{
+		temp = temp + i;
+		i++;
+	}
+	if (temp != 742)
+		return (1);
+	else
+		printf("%d", temp);
+	return (0);
 }
 
 int		validate_nbrs(char *raw)

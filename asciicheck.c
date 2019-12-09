@@ -1,31 +1,25 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   asciicheck.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: malasalm <malasalm@student.hive.fi>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 11:06:34 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/09 10:53:44 by malasalm         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <stdio.h> // REMOVE IT YOU DUMBASS
 #include <fcntl.h>
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-int	asciicheck(int fd)
+int	asciicheck(int *fd)
 {
 	int i;
-	char	*fds[fd];
+	int j;
 	int temp;
 
 	i = 0;
+	j = 0;
 	temp = 0;
-	while (fds[fd][i] != '\0')
+	
+	while (fd[i])
 	{
-		temp = temp + i;
+		while (fd[i][j] != '\0')
+		{
+			temp = temp + j;
+			j++;
+		}
 		i++;
 	}
 	if (temp != 742)
@@ -35,10 +29,10 @@ int	asciicheck(int fd)
 	return (0);
 }
 
-int		main(int argc, char **argv)
+int		main(void)
 {
-	int		fd;
+	int fd[4][4] = {{., ., ., #}, {., ., ., #}, {., ., ., #}, {., ., ., #}, {., ., ., #}};
 
-	asciicheck(fd = open(argv[1], O_RDONLY));
+	asciicheck(fd);
 	return (0);
 }
