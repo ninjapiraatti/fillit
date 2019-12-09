@@ -12,8 +12,8 @@ int	asciicheck(char *fd)
 	temp = 0;
 	
 	while (fd[i] != '\0')
-	{
-		temp = temp + i;
+	{	
+		temp = temp + ft_atoi((const char*)fd);
 		i++;
 	}
 
