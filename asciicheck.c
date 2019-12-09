@@ -3,25 +3,20 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-int	asciicheck(int *fd)
+int	asciicheck(char *fd)
 {
 	int i;
-	int j;
 	int temp;
 
 	i = 0;
-	j = 0;
 	temp = 0;
 	
-	while (fd[i])
+	while (fd[i] != '\0')
 	{
-		while (fd[i][j] != '\0')
-		{
-			temp = temp + j;
-			j++;
-		}
+		temp = temp + i;
 		i++;
 	}
+
 	if (temp != 742)
 		return (1);
 	else
@@ -31,7 +26,7 @@ int	asciicheck(int *fd)
 
 int		main(void)
 {
-	int fd[4][4] = {{., ., ., #}, {., ., ., #}, {., ., ., #}, {., ., ., #}, {., ., ., #}};
+	char *fd = "...#...#...#...#";
 
 	asciicheck(fd);
 	return (0);
