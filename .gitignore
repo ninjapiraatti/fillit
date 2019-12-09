@@ -1,3 +1,5 @@
 *.o
 .DS_Store
 .vs*
+*.out
+a.out.dSYM
