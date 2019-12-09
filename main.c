@@ -1,46 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 10:49:52 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/09 15:34:44 by tlouekar         ###   ########.fr       */
+/*   Created: 2019/12/02 11:06:34 by tlouekar          #+#    #+#             */
+/*   Updated: 2019/12/09 15:35:52 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h> // REMOVE IT YOU DUMBASS
 #include "libft/includes/libft.h"
+#include "fillit.h"
+#include <fcntl.h>
 
-char	*validate_ascii(char *piece)
+
+int		main(int argc, char **argv)
 {
-	int		count;
+	char	*raw;
+	int		fd;
+	int		bt;
+	char	buf[21];
 
-	count = 0;
-	return (piece);
-}
-
-int		validate_nbrs(char *raw)
-{
-	int		i;
-	int		ncount;
-
-	i = 0;
-	ncount = 0;
-	while (raw[i] != '\0')
+	fd = 0;
+	bt = 0;
+	if (argc != 2)
 	{
-		if (raw[i] == '\n')
-			i++;
-		i++;
-	}
-	printf("Testpiece: %s\n", raw);
-	return (0);
-}
-
-int		validate(char *raw)
-{
-	if (validate_nbrs(raw) == 0)
+		ft_putstr("usage: fillit <filename>.\n");
 		return (0);
-	return (1);
+	}
+	raw = ft_strnew(0);
+	fd = open(argv[1], O_RDONLY);
+	while ((bt = read(fd, buf, BUFF_SIZE)) > 0)
+	{
+		raw = ft_strjoin(raw, buf);
+	}
+	printf("%s", raw);
+	/*
+	if (validate(argv) == 1)
+		ft_putstr("A valid file.");
+	else
+		ft_putstr("An invalid file.");
+	printf("argc: %d\n", argc);
+	*/
+	return (0);
 }

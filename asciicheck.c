@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
+/*   asciicheck.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: malasalm <malasalm@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/02 10:49:52 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/09 15:34:44 by tlouekar         ###   ########.fr       */
+/*   Created: 2019/12/02 11:06:34 by tlouekar          #+#    #+#             */
+/*   Updated: 2019/12/09 10:53:44 by malasalm         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h> // REMOVE IT YOU DUMBASS
+#include <fcntl.h>
 #include "libft/includes/libft.h"
+#include "fillit.h"
 
-char	*validate_ascii(char *piece)
+int	asciicheck(int fd)
 {
-	int		count;
-
-	count = 0;
-	return (piece);
-}
-
-int		validate_nbrs(char *raw)
-{
-	int		i;
-	int		ncount;
+	int i;
+	char	*fds[fd];
+	int temp;
 
 	i = 0;
-	ncount = 0;
-	while (raw[i] != '\0')
+	temp = 0;
+	while (fds[fd][i] != '\0')
 	{
-		if (raw[i] == '\n')
-			i++;
+		temp = temp + i;
 		i++;
 	}
-	printf("Testpiece: %s\n", raw);
+	if (temp != 742)
+		return (1);
+	else
+		printf("%d", temp);
 	return (0);
 }
 
-int		validate(char *raw)
+int		main(int argc, char **argv)
 {
-	if (validate_nbrs(raw) == 0)
-		return (0);
-	return (1);
+	int		fd;
+
+	asciicheck(fd = open(argv[1], O_RDONLY));
+	return (0);
 }

@@ -6,14 +6,13 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 08:46:38 by tlouekar          #+#    #+#             */
-/*   Updated: 2019/12/02 10:57:03 by tlouekar         ###   ########.fr       */
+/*   Updated: 2019/12/04 14:16:41 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-
-# define BUFF_SIZE 8
+# define BUFF_SIZE 21
 # define FD_MAX 8192
 
 # include <string.h>
