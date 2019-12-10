@@ -24,6 +24,7 @@ int		main(int argc, char **argv)
 	}
 	asciicheck(raw);
 	validate(raw);
+	solve(raw);
 	/*
 	scan_save(raw);
 	

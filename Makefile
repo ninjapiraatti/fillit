@@ -4,6 +4,7 @@ NAME = fillit
 SRCS = 	main.c \
 		validate.c \
 		asciicheck.c \
+		solve.c \
 
 INCS = 	libft/includes/libft.h \
 
