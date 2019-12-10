@@ -6,24 +6,23 @@
 
 int		main(int argc, char **argv)
 {
+	char	*line;
 	char	*raw;
 	int		fd;
-	int		bt;
-	char	buf[21];
 
 	fd = 0;
-	bt = 0;
 	if (argc != 2)
 	{
 		ft_putstr("usage: fillit <filename>.\n");
 		return (0);
 	}
-	raw = ft_strnew(0);
 	fd = open(argv[1], O_RDONLY);
-	while ((bt = read(fd, buf, BUFF_SIZE)) > 0)
+	raw = ft_strnew(0);
+	while (get_next_line(fd, &line) == 1)
 	{
-		raw = ft_strjoin(raw, buf);
+		raw = ft_strjoin(raw, line);
 	}
+	validate(raw);
 	printf("%s", raw);
 	/*
 	if (validate(argv) == 1)

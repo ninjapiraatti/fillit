@@ -1,6 +1,7 @@
 #include <stdio.h> // REMOVE IT YOU DUMBASS
 #include "libft/includes/libft.h"
 
+/*
 char	*validate_ascii(char *piece)
 {
 	int i;
@@ -20,21 +21,43 @@ char	*validate_ascii(char *piece)
 		printf("%d", temp);
 	return (0);
 }
+*/
 
 int		validate_nbrs(char *raw)
 {
 	int		i;
+	int		j;
 	int		ncount;
 
 	i = 0;
+	j = 0;
 	ncount = 0;
 	while (raw[i] != '\0')
 	{
-		if (raw[i] == '\n')
-			i++;
+		if ((raw[i] == '#') && ((i + 1) % 16 != 0))
+		{
+			if ((raw[i + 4] == '#') && ((i + 1) % 16 < 13))
+			{
+				//printf("i and modulo: %d, %d\n", i, ((i + 1) % 16));
+				ncount += 2;
+			}
+			if (raw[i + 1] == '#')
+			{
+				ncount += 2;
+				//printf("i: %d\n", i);
+			}
+			/*
+			if ((raw[i + 1] == '#') && (raw[i - 1] == '#') && 
+			(raw[i + 4] == '#') && (i % 16 != 0))
+			{
+				ncount -= 2;
+				printf("i: %d\n", i);
+			}
+			*/
+			printf("i and ncount: %d, %d\n", i + 1, ncount);
+		}
 		i++;
 	}
-	printf("Testpiece: %s\n", raw);
 	return (0);
 }
 
