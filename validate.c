@@ -23,6 +23,44 @@ char	*validate_ascii(char *piece)
 }
 */
 
+int		validate_tetrimino(int start, char *raw)
+{
+	int		i;
+	int		ncount;
+
+	i = 0;
+	ncount = 0;
+	while (i < 16)
+	{
+		if ((raw[start] == '#') && ((start + 1) % 16 != 0))
+		{
+			if ((raw[start + 4] == '#') && ((start + 1) % 16 < 13))
+			{
+				//printf("i and modulo: %d, %d\n", i, ((i + 1) % 16));
+				ncount += 2;
+			}
+			if (raw[start + 1] == '#')
+			{
+				ncount += 2;
+				//printf("i: %d\n", i);
+			}
+			/*
+			if ((raw[i + 1] == '#') && (raw[i - 1] == '#') && 
+			(raw[i + 4] == '#') && (i % 16 != 0))
+			{
+				ncount -= 2;
+				printf("i: %d\n", i);
+			}
+			*/
+			printf("i and ncount: %d, %d\n", i + 1, ncount);
+		}
+		start++;
+	}
+	if (ncount != 6 || ncount != 8)
+		return (0);
+	return (1);
+}
+
 int		validate_nbrs(char *raw)
 {
 	int		i;
@@ -46,38 +84,16 @@ int		validate_nbrs(char *raw)
 			printf("Too many sharps");
 			return (0);
 		}
+		else if (validate_tetrimino(i, raw) == 0)
+		{
+			printf("not valid");
+			return (0);
+		}
 		sharps = 0;
 		j = 0;
 		i += 16;
 	}
-	i = 0;
-	while (raw[i] != '\0')
-	{
-		if ((raw[i] == '#') && ((i + 1) % 16 != 0))
-		{
-			if ((raw[i + 4] == '#') && ((i + 1) % 16 < 13))
-			{
-				//printf("i and modulo: %d, %d\n", i, ((i + 1) % 16));
-				ncount += 2;
-			}
-			if (raw[i + 1] == '#')
-			{
-				ncount += 2;
-				//printf("i: %d\n", i);
-			}
-			/*
-			if ((raw[i + 1] == '#') && (raw[i - 1] == '#') && 
-			(raw[i + 4] == '#') && (i % 16 != 0))
-			{
-				ncount -= 2;
-				printf("i: %d\n", i);
-			}
-			*/
-			printf("i and ncount: %d, %d\n", i + 1, ncount);
-		}
-		i++;
-	}
-	return (0);
+	return (1);
 }
 
 int		validate(char *raw)
