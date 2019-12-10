@@ -22,6 +22,9 @@ int		main(int argc, char **argv)
 	{
 		raw = ft_strjoin(raw, line);
 	}
+	ft_putstr(raw);
+	printf("\n");
+	asciicheck(raw);
 	validate(raw);
 	/*
 	if (validate(argv) == 1)

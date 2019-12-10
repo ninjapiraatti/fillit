@@ -17,9 +17,12 @@ int	asciicheck(char *raw)
 		i++;
 	}
 
-	if (temp != 742)
+	if (temp % 744 == 0)
+		printf("%d\n", temp);
+	else 
+	{
+		printf("shit works but number not bueno\n");
 		return (1);
-	else
-		printf("%d", temp);
+	}
 	return (0);
 }
