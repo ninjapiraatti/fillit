@@ -22,11 +22,11 @@ int		main(int argc, char **argv)
 	{
 		raw = ft_strjoin(raw, line);
 	}
-	ft_putstr(raw);
-	printf("\n");
 	asciicheck(raw);
 	validate(raw);
 	/*
+	scan_save(raw);
+	
 	if (validate(argv) == 1)
 		ft_putstr("A valid file.");
 	else
