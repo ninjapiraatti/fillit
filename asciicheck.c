@@ -13,11 +13,11 @@ int	asciicheck(char *raw)
 	
 	while (raw[i] != '\0')
 	{	
-		temp = temp + ft_atoi((const char*)raw);
+		temp = temp + raw[i];
 		i++;
 	}
 
-	if (temp % 744 == 0)
+	if (temp % 692 == 0)
 		printf("%d\n", temp);
 	else 
 	{
