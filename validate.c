@@ -1,28 +1,6 @@
 #include <stdio.h> // REMOVE IT YOU DUMBASS
 #include "libft/includes/libft.h"
 
-/*
-char	*validate_ascii(char *piece)
-{
-	int i;
-	char	*fds[fd];
-	int temp;
-
-	i = 0;
-	temp = 0;
-	while (fds[fd][i] != '\0')
-	{
-		temp = temp + i;
-		i++;
-	}
-	if (temp != 742)
-		return (1);
-	else
-		printf("%d", temp);
-	return (0);
-}
-*/
-
 int		validate_tetrimino(int start, char *raw)
 {
 	int		i;
