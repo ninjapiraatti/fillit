@@ -3,7 +3,7 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-int	asciicheck(char *fd)
+int	asciicheck(char *raw)
 {
 	int i;
 	int temp;
@@ -11,9 +11,9 @@ int	asciicheck(char *fd)
 	i = 0;
 	temp = 0;
 	
-	while (fd[i] != '\0')
+	while (raw[i] != '\0')
 	{	
-		temp = temp + ft_atoi((const char*)fd);
+		temp = temp + ft_atoi((const char*)raw);
 		i++;
 	}
 
@@ -21,13 +21,5 @@ int	asciicheck(char *fd)
 		return (1);
 	else
 		printf("%d", temp);
-	return (0);
-}
-
-int		main(void)
-{
-	char *fd = "...#...#...#...#";
-
-	asciicheck(fd);
 	return (0);
 }
