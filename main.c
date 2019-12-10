@@ -23,7 +23,6 @@ int		main(int argc, char **argv)
 		raw = ft_strjoin(raw, line);
 	}
 	validate(raw);
-	printf("%s", raw);
 	/*
 	if (validate(argv) == 1)
 		ft_putstr("A valid file.");

@@ -28,10 +28,29 @@ int		validate_nbrs(char *raw)
 	int		i;
 	int		j;
 	int		ncount;
+	int		sharps;
 
 	i = 0;
 	j = 0;
 	ncount = 0;
+	while (raw[i] != '\0')
+	{
+		while (j < 16)
+		{
+			if (raw[i + j] == '#')
+				sharps++;
+			j++;
+		}
+		if (sharps > 4)
+		{
+			printf("Too many sharps");
+			return (0);
+		}
+		sharps = 0;
+		j = 0;
+		i += 16;
+	}
+	i = 0;
 	while (raw[i] != '\0')
 	{
 		if ((raw[i] == '#') && ((i + 1) % 16 != 0))
