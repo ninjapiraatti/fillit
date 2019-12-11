@@ -24,6 +24,7 @@ int		main(int argc, char **argv)
 	}
 	asciicheck(raw);
 	validate(raw);
+	scan_save_tetramino(raw);
 	solve(raw);
 	/*
 	scan_save(raw);
