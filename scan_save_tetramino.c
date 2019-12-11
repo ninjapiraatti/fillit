@@ -3,11 +3,10 @@
 #include "fillit.h"
 
 /* scan raw until the first #.
-store the place number of the first # in new string.
-store the remainder of raw in a temp.
-scan temp until the next #.
-store the place number of the next # in new string.
-continue scanning temp until 16 characters have been scanned.
+store the place number of the first # in tetramino string.
+scan the remainder of raw until the next #.
+store the place number of the next # in tetramino string.
+continue until raw reaches the null terminator.
 */
 
 void scan_save_tetramino(char *raw)
