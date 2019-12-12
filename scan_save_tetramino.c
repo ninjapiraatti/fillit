@@ -11,24 +11,34 @@ continue until raw reaches the null terminator.
 
 void scan_save_tetramino(char *raw)
 {
-	t_tetrapak tetramino;
-	char *tetcpy;
-	int i;
-	int j;
-	int hashplace;
+	t_list *lst;
+	t_list *next;
+	char *tetpack; // array of tets
+	char *tet; // string stored in tetpack
+	int i; // raw index
+	int j; // tet index
+	int k; // chunk of raw index
 
 	i = 0;
 	j = 0;
-	while (raw[i] != '\0')
+	k = 0;
+	while (k < 16) // takes 16 chars from raw then ...
 	{
-		if (raw[i] == '#')
+		while (raw[i] != '\0')
 		{
-			tetcpy[j] = i;
-			j++;
-			i++;
+			if (raw[i] == '#') //if there's a #, set the value of tet's char to it's number on the grid.
+			{
+				tet[j] = i;
+				j++;
+				i++;
+			}
+			else // otherwise just keep scanning the chunk until a # is found or the chunk ends
+				i++;
 		}
-		else
-			i++;
+		k++;
 	}
-	tetramino.tetramino = ft_strdup(tetcpy);
+	make_list(tet);
+
+	k = 0;
+	
 }
