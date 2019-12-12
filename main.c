@@ -3,6 +3,15 @@
 #include "fillit.h"
 #include <fcntl.h>
 
+int		recursiontester(int i)
+{
+	if (i < 1)
+		return (0);
+	printf("I IS: %d\n", i);
+	while (i > 0)
+		recursiontester(--i);
+	return(0);
+}
 
 int		main(int argc, char **argv)
 {
@@ -25,6 +34,7 @@ int		main(int argc, char **argv)
 	asciicheck(raw);
 	validate(raw);
 	solve(raw);
+	printf("RECURSION TEST: %d", recursiontester(300000));
 	/*
 	if (validate(argv) == 1)
 		ft_putstr("A valid file.");
