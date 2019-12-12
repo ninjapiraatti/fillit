@@ -12,5 +12,4 @@ void	print_grid(t_grid *grid)
 		ft_putstr(grid->str);
 		i++;
 	}
-	ft_memdel(grid);
 }

@@ -12,5 +12,5 @@ void	free_grid(t_grid *grid)
 		ft_memdel((void*)&(grid->str));
 		i++;
 	}
-
+	ft_memdel(grid);
 }
