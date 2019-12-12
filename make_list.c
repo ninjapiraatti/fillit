@@ -11,3 +11,4 @@ void make_list(char *tet)
 	content = tet;
 	size = ft_strlen(content);
 	first = ft_lstnew(*content, size);
+}
