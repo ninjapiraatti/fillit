@@ -11,9 +11,6 @@ continue until raw reaches the null terminator.
 
 void scan_save_tetramino(char *raw)
 {
-	t_list *lst;
-	t_list *next;
-	char *tetpack; // array of tets
 	char *tet; // string stored in tetpack
 	int i; // raw index
 	int j; // tet index
