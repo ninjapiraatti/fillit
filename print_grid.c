@@ -1,5 +1,5 @@
 #include <stdio.h> // REMOVE IT YOU DUMBASS
-#include "libft/includes/libft.h"#include
+#include "libft/includes/libft.h"
 #include "fillit.h"
 
 void	print_grid(t_grid *grid)

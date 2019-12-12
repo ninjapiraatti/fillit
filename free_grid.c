@@ -1,5 +1,5 @@
 #include <stdio.h> // REMOVE IT YOU DUMBASS
-#include "libft/includes/libft.h"#include
+#include "libft/includes/libft.h"
 #include "fillit.h"
 
 void	free_grid(t_grid *grid)
@@ -12,5 +12,5 @@ void	free_grid(t_grid *grid)
 		ft_memdel((void*)&(grid->str));
 		i++;
 	}
-	
+
 }

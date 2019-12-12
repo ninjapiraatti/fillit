@@ -1,5 +1,5 @@
 #include <stdio.h> // REMOVE IT YOU DUMBASS
-#include "libft/includes/libft.h"#include
+#include "libft/includes/libft.h"
 #include "fillit.h"
 
 /* sets a new point on the grid */
