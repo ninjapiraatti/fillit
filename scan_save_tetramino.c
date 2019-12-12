@@ -9,6 +9,35 @@ store the place number of the next # in tetcpy string.
 continue until raw reaches the null terminator.
 */
 
+void	ft_lstaddend(t_list **alst, t_list *new)
+{
+	t_list *lst;
+
+	lst = *alst;
+
+	if (lst)
+	{
+		while (lst->next)
+			lst = lst->next;
+		lst->next = new;
+	}
+	else
+		*alst = new;
+}
+
+void make_list(char *tet)
+{
+	t_list *first;
+	const char *content;
+	size_t size;
+	t_list new;
+	
+	content = tet;
+	size = ft_strlen(content);
+	first = ft_lstnew(*content, size);
+	return(first);
+}
+
 void scan_save_tetramino(char *raw)
 {
 	char *tet; // string stored in tetpack
@@ -35,6 +64,8 @@ void scan_save_tetramino(char *raw)
 		k++;
 	}
 	make_list(tet);
+
+	ft_lstaddend(*first, new);
 
 	k = 0;
 	
