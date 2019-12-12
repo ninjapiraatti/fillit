@@ -24,11 +24,8 @@ int		main(int argc, char **argv)
 	}
 	asciicheck(raw);
 	validate(raw);
-	scan_save_tetramino(raw);
 	solve(raw);
 	/*
-	scan_save(raw);
-	
 	if (validate(argv) == 1)
 		ft_putstr("A valid file.");
 	else

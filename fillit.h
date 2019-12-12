@@ -4,9 +4,10 @@
 #include "libft/includes/libft.h"
 #include <fcntl.h>
 
-typedef struct		s_tetrapak
+typedef struct		s_tetrapak // used in scan_save_tetramino.c
 {
-	int			*tetramino;
+	int				*tetramino;
+
 }					t_tetrapak;
 
 typedef	struct		s_list //taken from libft.h just so we can get a good overview in one place. Remove for submission.
@@ -14,12 +15,23 @@ typedef	struct		s_list //taken from libft.h just so we can get a good overview i
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
+
 }					t_list;
 
 typedef struct		s_grid
 {
-	// where we store the grid!
+	char			*grid;
+	int				size;
+	char			*str;
+
 }					t_grid;
+
+typedef struct 		s_point //for setting points on the grid to place tetraminos
+{
+	int 			x;
+	int				y;
+
+}					t_point;
 
 int		validate(char *raw);
 int		asciicheck(char *raw);

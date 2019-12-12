@@ -10,7 +10,6 @@ continue until raw reaches the null terminator.
 */
 
 void scan_save_tetramino(char *raw)
-
 {
 	t_tetrapak tetramino;
 	char *tetcpy;
