@@ -26,13 +26,6 @@ typedef struct		s_grid
 
 }					t_grid;
 
-typedef struct 		s_point //for setting points on the grid to place tetraminos
-{
-	int 			x;
-	int				y;
-
-}					t_point;
-
 int		validate(char *raw);
 int		asciicheck(char *raw);
 int		solve(char *raw);
