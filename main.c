@@ -35,6 +35,7 @@ int		main(int argc, char **argv)
 	asciicheck(raw);
 	validate(raw);
 	solve(raw);
+	scan_save_tetramino(raw);
 	//printf("RECURSION TEST: %d", recursiontester(4));
 	/*
 	if (validate(argv) == 1)

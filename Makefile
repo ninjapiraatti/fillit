@@ -5,6 +5,7 @@ SRCS = 	main.c \
 		validate.c \
 		asciicheck.c \
 		solve.c \
+		scan_save_tetramino.c \
 
 INCS = 	libft/includes/libft.h \
 
