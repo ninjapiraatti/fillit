@@ -2,34 +2,33 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-// void	ft_lstaddend(t_list **alst, t_list *new)
-// {
-// 	t_list *lst;
-
-// 	lst = *alst;
-
-// 	if (lst)
-// 	{
-// 		while (lst->next)
-// 			lst = lst->next;
-// 		lst->next = new;
-// 	}
-// 	else
-// 		*alst = new;
-// }
-
-// void make_list(char *tet)
-// {
-// 	t_list *first;
-// 	const char *content;
-// 	size_t size;
-// 	t_list new;
+t_list *make_list(char *tet)
+{
+	t_list *lst; //the list
+	t_list *first; // the first node
+	t_list *node; // a node in the list
+	const char *content; //the contents of the node in the list
+	size_t size; // the size of the contents of the node in the list
+	t_list *new; // a new node in the list
 	
-// 	content = tet;
-// 	size = ft_strlen(content);
-// 	first = ft_lstnew(*content, size);
-// 	return(first);
-// }
+	content = tet;
+	size = ft_strlen(content);
+	
+	if (first = NULL)
+		first = ft_lstnew(*content, size);
+	else
+	{
+		if (lst)
+		{
+			while (lst->next)
+				lst = lst->next;
+			lst->next = new;
+		}
+			else
+				lst = new;
+	}
+	return(lst);
+}
 
 void scan_save_tetramino(char *raw)
 {
@@ -75,6 +74,4 @@ void scan_save_tetramino(char *raw)
 	//	make_list(tet); // where? and then how to add in lstaddend to next loop onwards?
 	i++;
 	}
-	printf("tetlast:\n");
-	printf("%d\n", tet[l]);
 }
