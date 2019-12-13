@@ -14,31 +14,11 @@ int		recursiontester(int i)
 }
 */
 
-void	ft_lstaddend(t_list **alst, t_list *new)
-{
-	t_list *lst;
-
-	lst = *alst;
-
-	if (lst)
-	{
-		while (lst->next)
-			lst = lst->next;
-		lst->next = new;
-	}
-	else
-		*alst = new;
-}
-
 int		main(int argc, char **argv)
 {
 	char	*line;
 	char	*raw;
 	int		fd;
-	t_list	*test;
-	t_list	*test2;
-	t_list	*test3;
-	t_list	*test4;
 
 	fd = 0;
 	if (argc != 2)
@@ -55,16 +35,6 @@ int		main(int argc, char **argv)
 	asciicheck(raw);
 	validate(raw);
 	solve(raw);
-	test = ft_lstnew(ft_strdup("koiro"), 5);
-	test2 = ft_lstnew(ft_strdup("kisse"), 5);
-	test3 = ft_lstnew(ft_strdup("vales"), 5);
-	test4 = ft_lstnew(ft_strdup("kylpynalle"), 11);
-	ft_lstaddend(&test, test2);
-	ft_lstaddend(&test, test3);
-	ft_lstaddend(&test, test4);
-	printf("content of 1st node of test%s", test->next->content);
-	printf("content of 1st node of test%s", test->next->next->content);
-	printf("content of 1st node of test%s", test->next->next->next->content);
 	//printf("RECURSION TEST: %d", recursiontester(4));
 	/*
 	if (validate(argv) == 1)
