@@ -5,27 +5,19 @@
 t_list *make_list(char *tet)
 {
 	t_list *lst; //the list
-	t_list *first; // the first node
-	t_list *node; // a node in the list
-	const char *content; //the contents of the node in the list
-	size_t size; // the size of the contents of the node in the list
-	t_list *new; // a new node in the list
 	
-	content = tet;
-	size = ft_strlen(content);
-	
-	if (first = NULL)
-		first = ft_lstnew(*content, size);
+	if (lst = NULL)
+		lst = ft_lstnew(tet, 4);
 	else
 	{
 		if (lst)
 		{
 			while (lst->next)
 				lst = lst->next;
-			lst->next = new;
+			lst->next = ft_lstnew(tet, 4);
 		}
-			else
-				lst = new;
+		else
+			return (lst);
 	}
 	return(lst);
 }
