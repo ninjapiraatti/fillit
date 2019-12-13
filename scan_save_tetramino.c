@@ -33,44 +33,39 @@ void make_list(char *tet)
 
 void scan_save_tetramino(char *raw)
 {
-	char *tet; // string stored in tetpack
+	char *tet;
+	char *loop;
 	char *chunk;
-	char *remainder;
-	int size;
-	int i; // raw index
-	int j; // tet index
-	int k; // chunk of raw index
-	int l; // raws chunk index
+	int tetnum;
+	int i;
+	int j;
+	int k;
+	int l;
 
 	i = 0;
 	j = 0;
 	k = 0;
 	l = 0;
-	size = (ft_strlen(raw) / 16); // now we have the number of rounds we want the loop to go
-	while (size != 0)
+	tetnum = (ft_strlen(raw) / 16);
+	while (raw[i] != '\0')
 	{
-		while (k < 16) // takes 16 chars from raw then ...
-		ft_strncpy(chunk, raw, 16);
-		ft_strncpy(remainder, raw, size - 16);
+		while (loop[j] < tetnum);
 		{
-			while (raw[i] != '\0')
+			chunk = ft_strsub(raw, (j * 16), 16);
+			while (chunk[k] != '\0')
 			{
-				if (raw[i] == '#') //if there's a #, set the value of tet's char to it's number on the grid.
+				if (chunk[k] == '#')
 				{
-					tet[j] = i;
-					j++;
-					i++;
+					tet[l] = k;
+					l++;
+					k++;
 				}
-				else // otherwise just keep scanning the chunk until a # is found or the chunk ends
-					i++;
+				else 
+					k++;
 			}
-			k++;
+		j++;
 		}
-		make_list(tet);
-		size--;
+		make_list(tet); // where? and then how to add in lstaddend to next loop onwards?
+	i++;
 	}
-	// ft_lstaddend(*first, new);
-
-	k = 0;
-	
 }
