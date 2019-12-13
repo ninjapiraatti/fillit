@@ -2,23 +2,32 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-t_list *make_list(char *tet)
+t_list *make_list(int *tet)
 {
-	t_list *lst; //the list
+	t_list *lst;
 	
-	if (lst = NULL)
+	lst = NULL;
+	if (lst == NULL)
+	{
 		lst = ft_lstnew(tet, 4);
+		printf("lst:\n");
+		printf("%s\n", lst->content);
+	}
 	else
 	{
 		if (lst)
 		{
 			while (lst->next)
 				lst = lst->next;
+				printf("next lst:\n");
+				printf("%s\n", lst->content);
 			lst->next = ft_lstnew(tet, 4);
 		}
 		else
 			return (lst);
 	}
+	printf("final lst:\n");
+	printf("%s\n", lst->content);
 	return(lst);
 }
 
@@ -59,11 +68,13 @@ void scan_save_tetramino(char *raw)
 				else 
 					k++;
 			}
+			printf("\n");
+			k = 0;
+			make_list(tet);
+			l = 0;
 		j++;
 		printf("\n");
-		printf("\n");
 		}
-	//	make_list(tet); // where? and then how to add in lstaddend to next loop onwards?
 	i++;
 	}
 }
