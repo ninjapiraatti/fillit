@@ -19,7 +19,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 			if((grid[temp[i] + offset + pos] - 48) == 0)
 			{
 				//printf("Piece fits.\n");
-				printf("Grid: \n%s\n", grid);
+				//printf("Grid: \n%s\n", grid);
 				i++;
 			}
 			else
@@ -53,7 +53,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 
 int		fit_piece(char *grid, int gridsize)
 {
-	
+
 	int			pos;
 	t_list		*pieces;
 	int			piece1[4] = {0, 1, 4, 5};
@@ -78,18 +78,20 @@ int		fit_piece(char *grid, int gridsize)
 	{
 		if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
 		{
+			pieces = pieces->next;
 			tletter++;
-			//pieces = pieces->next;
-			recursion(pieces, pos, tletter, grid, gridsize);
+			printf("Grid: \n%s\n", grid);
+			//recursion(pieces->next, pos, tletter++, grid, gridsize);
 		}
 		else
 		{
-			
+			pos++;
 		}
+		i++;
 	}
 	//printf("Inside the node: %d, %d, %d, %d\n", &pieces->next->content[0], &pieces->next->content[1], &pieces->next->content[2], &pieces->next->content[3]);
 	//printf("Inside the node: %d, %d, %d, %d\n", temp[0], temp[1], temp[2], temp[3]);
-	
+
 	printf("Grid: \n%s\n", grid);
 	// printf("Offet: \n%d\n", offset);
 	printf("Gridsize: \n%d\n", gridsize);
