@@ -2,8 +2,6 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-<<<<<<< HEAD
-=======
 int	*topleft(int *grid)
 {
 	int i;
@@ -40,7 +38,6 @@ int	*topleft(int *grid)
 	return tet;
 }
 
->>>>>>> 5407ddba8a6cea9ed0d30b60f274e36cc9324947
 int		fit_piece(char *grid, int gridsize)
 {
 	int			i;
@@ -59,17 +56,10 @@ int		fit_piece(char *grid, int gridsize)
 	i = 0;
 	pos = 0;
 	offset = 0;
-<<<<<<< HEAD
 	tletter = 'A';
 	//printf("Inside the node: %d, %d, %d, %d\n", &pieces->next->content[0], &pieces->next->content[1], &pieces->next->content[2], &pieces->next->content[3]);
 	//printf("Inside the node: %d, %d, %d, %d\n", temp[0], temp[1], temp[2], temp[3]);
 	while (pieces != NULL)
-=======
-	temp = pieces->content;
-	temp = topleft(temp);
-	printf("Inside the node: %d\n", temp[0]);
-	while (i < 4 && (pos < 169))
->>>>>>> 5407ddba8a6cea9ed0d30b60f274e36cc9324947
 	{
 		while (i < 4 && pos < 169)
 		{
