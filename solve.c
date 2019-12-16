@@ -2,44 +2,6 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-int	*topleft(int *grid)
-{
-	int i;
-	int j;
-	int *tet;
-
-	i = 0;
-	j = 0;
-	tet = ft_memalloc(16);
-	printf("Hello, is it me youre looking for");
-	while (grid[i] != '\0')
-	{
-		if (grid[i] == 'X')
-		{
-			tet[j] = i;
-			printf("%d ", tet[j]);
-			j++;
-			i++;
-		}
-		else 
-			i++;
-		if (grid[0] == 'X' || grid[1] == 'X' || grid[2] == 'X' || grid[3] == 'X')
-		{
-			while (grid[0] != 'X' && grid[4] != 'X' && grid[8] != 'X' && grid[12] != 'X')
-			{
-				tet[j] = i - 1;
-				j++;
-			}
-		}
-		while (grid[0] != 'X' && grid[1] != 'X' && grid[2] != 'X' && grid[3] != 'X')
-		{
-			tet[j] = i - 4;
-			j++;
-		}
-	}
-	return (tet);
-}
-
 int		fit_piece(char *grid, int gridsize)
 {
 	int			i;
@@ -65,9 +27,9 @@ int		fit_piece(char *grid, int gridsize)
 	//printf("Inside the node: %d, %d, %d, %d\n", temp[0], temp[1], temp[2], temp[3]);
 	while (pieces != NULL)
 	{
+		temp = pieces->content;
 		while (i < 4 && pos < 169)
 		{
-			temp = pieces->content;
 			offset = ((temp[i] / 4) * 10);
 			if((grid[temp[i] + offset + pos] - 48) == 0)
 			{

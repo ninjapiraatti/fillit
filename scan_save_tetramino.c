@@ -2,6 +2,43 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
+int	*topleft(char *grid)
+{
+	int i;
+	int j;
+	int *tet;
+
+	tet = ft_memalloc(16);
+	i = 0;
+	j = 0;
+	while (grid[i] != '\0')
+	{
+		if (grid[i] == 'X')
+		{
+			tet[j] = i;
+			printf("%d ", tet[j]);
+			j++;
+			i++;
+		}
+		else 
+			i++;
+		if (grid[0] == 'X' || grid[1] == 'X' || grid[2] == 'X' || grid[3] == 'X')
+		{
+			while (grid[0] != 'X' && grid[4] != 'X' && grid[8] != 'X' && grid[12] != 'X')
+			{
+				tet[j] = i - 1;
+				j++;
+			}
+		}
+		while (grid[0] != 'X' && grid[1] != 'X' && grid[2] != 'X' && grid[3] != 'X')
+		{
+			tet[j] = i - 4;
+			j++;
+		}
+	}
+	return (tet);
+}
+
 t_list *make_list(int *tet)
 {
 	t_list *lst;
