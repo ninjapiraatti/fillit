@@ -2,6 +2,45 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
+<<<<<<< HEAD
+=======
+int	*topleft(int *grid)
+{
+	int i;
+	int j;
+	int tet[4] = {0, 0, 0, 0};
+
+	i = 0;
+	j = 0;
+	while (grid[i] != '\0')
+	{
+		if (grid[i] == 'X')
+		{
+			tet[j] = i;
+			printf("%d ", tet[j]);
+			j++;
+			i++;
+		}
+		else 
+			i++;
+		if (grid[0] == 'X' || grid[1] == 'X' || grid[2] == 'X' || grid[3] == 'X')
+		{
+			while (grid[0] != 'X' && grid[4] != 'X' && grid[8] != 'X' && grid[12] != 'X')
+			{
+				tet[j - 1];
+				j++;
+			}
+		}
+		while (grid[0] != 'X' && grid[1] != 'X' && grid[2] != 'X' && grid[3] != 'X')
+		{
+			tet[j - 4];
+			j++;
+		}
+	}
+	return tet;
+}
+
+>>>>>>> 5407ddba8a6cea9ed0d30b60f274e36cc9324947
 int		fit_piece(char *grid, int gridsize)
 {
 	int			i;
@@ -20,10 +59,17 @@ int		fit_piece(char *grid, int gridsize)
 	i = 0;
 	pos = 0;
 	offset = 0;
+<<<<<<< HEAD
 	tletter = 'A';
 	//printf("Inside the node: %d, %d, %d, %d\n", &pieces->next->content[0], &pieces->next->content[1], &pieces->next->content[2], &pieces->next->content[3]);
 	//printf("Inside the node: %d, %d, %d, %d\n", temp[0], temp[1], temp[2], temp[3]);
 	while (pieces != NULL)
+=======
+	temp = pieces->content;
+	temp = topleft(temp);
+	printf("Inside the node: %d\n", temp[0]);
+	while (i < 4 && (pos < 169))
+>>>>>>> 5407ddba8a6cea9ed0d30b60f274e36cc9324947
 	{
 		while (i < 4 && pos < 169)
 		{
