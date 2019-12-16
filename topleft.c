@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 int	topleft(char *grid)
 {
 	int i;
@@ -9,20 +11,19 @@ int	topleft(char *grid)
 	while (grid[i] != '\0')
 	{
 		if (grid[i] == 'X')
-			{
-				tet[j] = i;
-				printf("%d ", tet[j]);
-				j++;
-				i++;
-			}
-			else 
-				i++;
-			}
+		{
+			tet[j] = i;
+			printf("%d ", tet[j]);
+			j++;
+			i++;
+		}
+		else 
+			i++;
 		if (grid[0] == 'X' || grid[1] == 'X' || grid[2] == 'X' || grid[3] == 'X')
 		{
-			while (grid[0] != 'X' && grid[4] != 'X' && grid[8] != 'X' && grid[16] != 'X')
+			while (grid[0] != 'X' && grid[4] != 'X' && grid[8] != 'X' && grid[12] != 'X')
 			{
-				tet[j - 4];
+				tet[j - 1];
 				j++;
 			}
 		}
@@ -32,4 +33,5 @@ int	topleft(char *grid)
 			j++;
 		}
 	}
+	return (0);
 }
