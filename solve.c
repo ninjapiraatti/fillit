@@ -6,10 +6,12 @@ int	*topleft(int *grid)
 {
 	int i;
 	int j;
-	int tet[4] = {0, 0, 0, 0};
+	int *tet;
 
 	i = 0;
 	j = 0;
+	tet = ft_memalloc(16);
+	printf("Hello, is it me youre looking for");
 	while (grid[i] != '\0')
 	{
 		if (grid[i] == 'X')
@@ -25,17 +27,17 @@ int	*topleft(int *grid)
 		{
 			while (grid[0] != 'X' && grid[4] != 'X' && grid[8] != 'X' && grid[12] != 'X')
 			{
-				tet[j - 1];
+				tet[j] = i - 1;
 				j++;
 			}
 		}
 		while (grid[0] != 'X' && grid[1] != 'X' && grid[2] != 'X' && grid[3] != 'X')
 		{
-			tet[j - 4];
+			tet[j] = i - 4;
 			j++;
 		}
 	}
-	return tet;
+	return (tet);
 }
 
 int		fit_piece(char *grid, int gridsize)
@@ -57,6 +59,8 @@ int		fit_piece(char *grid, int gridsize)
 	pos = 0;
 	offset = 0;
 	tletter = 'A';
+	temp = pieces->content;
+	temp = topleft(temp);
 	//printf("Inside the node: %d, %d, %d, %d\n", &pieces->next->content[0], &pieces->next->content[1], &pieces->next->content[2], &pieces->next->content[3]);
 	//printf("Inside the node: %d, %d, %d, %d\n", temp[0], temp[1], temp[2], temp[3]);
 	while (pieces != NULL)
@@ -67,12 +71,12 @@ int		fit_piece(char *grid, int gridsize)
 			offset = ((temp[i] / 4) * 10);
 			if((grid[temp[i] + offset + pos] - 48) == 0)
 			{
-				printf("Piece fits.\n");
+				// printf("Piece fits.\n");
 				i++;
 			}
 			else
 			{
-				printf("Piece don't fit.\n");
+				// printf("Piece don't fit.\n");
 				i = 0;
 				pos++;
 				if (pos > (offset + gridsize))
@@ -83,7 +87,7 @@ int		fit_piece(char *grid, int gridsize)
 		while (i < 4)
 		{
 			offset = ((temp[i] / 4) * 10);
-			printf("temp[i], offset, pos: %d, %d, %d\n", temp[i], offset, pos);
+			// printf("temp[i], offset, pos: %d, %d, %d\n", temp[i], offset, pos);
 			grid[temp[i] + offset + pos] = tletter;
 			i++;
 		}
