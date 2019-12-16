@@ -2,11 +2,11 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-char	*topleft(char *chunk)
+int		*topleft(char *chunk)
 {
 	int i;
 	int j;
-	char *tet;
+	int *tet;
 
 	tet = ft_memalloc(16);
 	i = 0;
@@ -49,6 +49,7 @@ char	*topleft(char *chunk)
 			i++;
 		}
 	}
+	printf("%d\n", tet[0]);
 	return (tet);
 }
 
@@ -85,6 +86,7 @@ void scan_save_tetramino(char *raw)
 {
 	int tet[4] = {0, 0, 0, 0};
 	char *chunk;
+	int	*intchunk;
 	int tetnum;
 	int i;
 	int j;
@@ -95,9 +97,10 @@ void scan_save_tetramino(char *raw)
 	j = 0;
 	k = 0;
 	l = 0;
+	intchunk = ft_memalloc(16);
 	tetnum = (ft_strlen(raw) / 16);
-	 printf("tetnum:\n");
-	 printf("%d\n", tetnum);
+	printf("tetnum:\n");
+	printf("%d\n", tetnum);
 	while (raw[i] != '\0')
 	{
 		while (j < tetnum)
@@ -118,14 +121,16 @@ void scan_save_tetramino(char *raw)
 				else 
 					k++;
 			}	
-			if (chunk[0] != '#' || chunk[1] != '#' || chunk[2] != '#' || chunk[3] != '#' || chunk[4] != '#' || chunk[8] != '#' || chunk[12] != '#')
-				chunk = topleft(chunk);
+			if ((chunk[0] != '#' && chunk[1] != '#' && chunk[2] != '#' && chunk[3] != '#') || 
+			(chunk[0] != '#' && chunk[4] != '#' && chunk[8] != '#' && chunk[12] != '#'))
+				intchunk = topleft(chunk);
 			printf("\n");
+			printf("INTCHUNKNKNK: %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
 			k = 0;
 			make_list(tet);
 			l = 0;
 		j++;
-		 printf("\n");
+		printf("\n");
 		}
 	i++;
 	}

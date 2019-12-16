@@ -54,8 +54,8 @@ int		main(int argc, char **argv)
 	}
 	asciicheck(raw);
 	validate(raw);
-	solve(raw);
 	scan_save_tetramino(raw);
+	solve(raw);
 	//printf("RECURSION TEST: %d", recursiontester(8));
 	/*
 	if (validate(argv) == 1)
