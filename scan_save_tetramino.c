@@ -30,7 +30,7 @@ char	*topleft(char *grid)
 				j++;
 			}
 		}
-		while (grid[0] != 'X' && grid[1] != 'X' && grid[2] != 'X' && grid[3] != 'X')
+		while ((grid[0] != 'X' && grid[1] != 'X' && grid[2] != 'X' && grid[3] != 'X') && (j < 4))
 		{
 			tet[j] = i - 4;
 			j++;
