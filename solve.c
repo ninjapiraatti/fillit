@@ -22,7 +22,6 @@ int		fit_piece(char *grid, int gridsize)
 	offset = 0;
 	tletter = 'A';
 	temp = pieces->content;
-	temp = topleft(temp);
 	//printf("Inside the node: %d, %d, %d, %d\n", &pieces->next->content[0], &pieces->next->content[1], &pieces->next->content[2], &pieces->next->content[3]);
 	//printf("Inside the node: %d, %d, %d, %d\n", temp[0], temp[1], temp[2], temp[3]);
 	while (pieces != NULL)

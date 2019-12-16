@@ -2,11 +2,11 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
-int	*topleft(char *grid)
+char	*topleft(char *grid)
 {
 	int i;
 	int j;
-	int *tet;
+	char *tet;
 
 	tet = ft_memalloc(16);
 	i = 0;
@@ -93,6 +93,7 @@ void scan_save_tetramino(char *raw)
 			// printf("chunk:\n");
 			// printf("%s\n", chunk);
 			// printf("tet:\n");
+			chunk = topleft(chunk);
 			while (chunk[k] != '\0')
 			{
 				if (chunk[k] == '#')
