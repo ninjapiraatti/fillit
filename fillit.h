@@ -4,11 +4,13 @@
 #include "libft/includes/libft.h"
 #include <fcntl.h>
 
-//typedef struct		s_tetrapak // used in scan_save_tetramino.c
-//{
-//	int				*tetramino;
-//
-//}					t_tetrapak;
+/*
+typedef struct		s_tetrapak // used in scan_save_tetramino.c
+{
+	int				*tetramino;
+
+}					t_tetrapak;
+*/
 
 typedef struct		s_grid
 {

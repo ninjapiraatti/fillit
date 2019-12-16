@@ -61,7 +61,7 @@ void scan_save_tetramino(char *raw)
 				if (chunk[k] == '#')
 				{
 					tet[l] = k;
-					printf("%d ", tet[l]);
+					//printf("%d ", tet[l]);
 					l++;
 					k++;
 				}
