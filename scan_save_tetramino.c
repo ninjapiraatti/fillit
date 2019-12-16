@@ -10,8 +10,8 @@ t_list *make_list(int *tet)
 	if (lst == NULL)
 	{
 		lst = ft_lstnew(tet, 4);
-		printf("lst:\n");
-		printf("%s\n", lst->content);
+		//printf("lst:\n");
+		//printf("%s\n", lst->content);
 	}
 	else
 	{
@@ -19,15 +19,15 @@ t_list *make_list(int *tet)
 		{
 			while (lst->next)
 				lst = lst->next;
-				printf("next lst:\n");
-				printf("%s\n", lst->content);
+				// printf("next lst:\n");
+				// printf("%s\n", lst->content);
 			lst->next = ft_lstnew(tet, 4);
 		}
 		else
 			return (lst);
 	}
-	printf("final lst:\n");
-	printf("%s\n", lst->content);
+	// printf("final lst:\n");
+	// printf("%s\n", lst->content);
 	return(lst);
 }
 
@@ -46,16 +46,16 @@ void scan_save_tetramino(char *raw)
 	k = 0;
 	l = 0;
 	tetnum = (ft_strlen(raw) / 16);
-	printf("tetnum:\n");
-	printf("%d\n", tetnum);
+	// printf("tetnum:\n");
+	// printf("%d\n", tetnum);
 	while (raw[i] != '\0')
 	{
 		while (j < tetnum)
 		{
 			chunk = ft_strsub(raw, (j * 16), 16);
-			printf("chunk:\n");
-			printf("%s\n", chunk);
-			printf("tet:\n");
+			// printf("chunk:\n");
+			// printf("%s\n", chunk);
+			// printf("tet:\n");
 			while (chunk[k] != '\0')
 			{
 				if (chunk[k] == '#')
@@ -68,12 +68,12 @@ void scan_save_tetramino(char *raw)
 				else 
 					k++;
 			}
-			printf("\n");
+			// printf("\n");
 			k = 0;
 			make_list(tet);
 			l = 0;
 		j++;
-		printf("\n");
+		// printf("\n");
 		}
 	i++;
 	}

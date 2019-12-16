@@ -21,13 +21,12 @@ int		fit_piece(char *grid, int gridsize)
 	i = 0;
 	pos = 0;
 	offset = 0;
-	temp = pieces->next->next->content;
+	temp = pieces->content;
 	printf("Inside the node: %d\n", temp[0]);
-	/*
 	while (i < 4 && (pos < 169))
 	{
-		offset = ((pieces->content[i] / 4) * 10);
-		if((grid[pieces->content[i] + offset + pos] - 48) == 0)
+		offset = ((temp[i] / 4) * 10);
+		if((grid[temp[i] + offset + pos] - 48) == 0)
 		{
 			//printf("Pieces->next->content fits.\n");
 			i++;
@@ -44,12 +43,12 @@ int		fit_piece(char *grid, int gridsize)
 	i = 0;
 	while (i < 4)
 	{
-		offset = ((pieces->content[i] / 4) * 10);
-		grid[pieces->content[i] + offset + pos] = 'X';
+		offset = ((temp[i] / 4) * 10);
+		grid[temp[i] + offset + pos] = 'X';
 		i++;
-	}*/
+	}
 	printf("Grid: \n%s\n", grid);
-	printf("Offet: \n%d\n", offset);
+	// printf("Offet: \n%d\n", offset);
 	printf("Gridsize: \n%d\n", gridsize);
 	return (1);
 }

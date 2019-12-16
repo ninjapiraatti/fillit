@@ -35,10 +35,10 @@ int		validate_tetrimino(int start, char *raw)
 	}
 	if (ncount == 6 || ncount == 8)
 	{
-		printf("VALID at ncount: %d\n", ncount);
+		// printf("VALID at ncount: %d\n", ncount);
 		return (1);
 	}
-	printf("INVALID at ncount: %d\n", ncount);
+	// printf("INVALID at ncount: %d\n", ncount);
 	return (0);
 }
 
