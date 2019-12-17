@@ -21,64 +21,46 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 			{
 				if (i == 0)
 					origpos = pos;
-				//printf("Piece fits.\n");
-				//printf("Grid: \n%s\n", grid);
 				i++;
 			}
 			else
 			{
-				//printf("Piece don't fit.\n");
 				i = 0;
 				pos++;
-				// if (pos > (offset + gridsize))
-				// 	pos += gridsize - offset;
 			}
-			//printf("Pos: \n%d\n", pos);
 		}
-		printf("Origpos: %d, Pos: %d\nGrid: \n%s\n", origpos, pos, grid);
-		getchar();
+		//printf("Origpos: %d, Pos: %d\nGrid: \n%s\n", origpos, pos, grid);
+		//getchar();
 		if (pos > 169)
-		{	
-			printf("Failed to fit the piece %d\n", temp[3]);
 			return (0);
-		}
 		i = 0;
 		pos = origpos;
 		while (i < 4)
 		{
 			offset = ((temp[i] / 4) * 10);
-			//printf("Writing");
-			//printf("temp[i], offset, pos: %d, %d, %d\n", temp[i], offset, pos);
 			grid[temp[i] + offset + pos] = tletter;
 			i++;
 		}
 		if (recursion(pieces->next, 0, ++tletter, grid, gridsize) == 0)
 		{
-			//printf("Grid: \n%s\n", grid);
 			i = 0;
 			while (i < 4)
 			{
 				offset = ((temp[i] / 4) * 10);
-				//printf("temp[i], offset, pos: %d, %d, %d\n", temp[i], offset, pos);
-				//printf("Erasing");
 				grid[temp[i] + offset + pos] = '0';
 				i++;
 			}
 			i = 0;
 			pos++;
 			tletter--;
-			//recursion(pieces, ++origpos, --tletter, grid, gridsize);
 		}
-		
 		else
 		{
-			printf("Next piece did fit. Current piece: %d\n", temp[3]);
+			//printf("Next piece did fit. Current piece: %d\n", temp[3]);
 			return (1);
 		}
-		//printf("Returning 0 but why. Current piece: %d\n", temp[3]);
-		//return (0); // What is this.
 	}
-	printf("Out of pieces.\n");
+	//printf("Out of pieces.\n");
 	return (1);
 }
 
@@ -106,24 +88,9 @@ int		fit_piece(char *grid, int gridsize)
 	pos = 0;
 	tletter = 'A';
 	if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
-	{
-		//pieces = pieces->next;
-		//tletter++;
-		printf("Return 1. Grid: \n%s\n", grid);
-		//recursion(pieces->next, pos, tletter++, grid, gridsize);
-	}
+		printf("RETURN 1. Grid: \n%s\n", grid);
 	else
-	{
-		printf("Return 0. Grid: \n%s\n", grid);
-		// reset the board, start over from pos+1?
-		pos++;
-	}
-	//printf("Inside the node: %d, %d, %d, %d\n", &pieces->next->content[0], &pieces->next->content[1], &pieces->next->content[2], &pieces->next->content[3]);
-	//printf("Inside the node: %d, %d, %d, %d\n", temp[0], temp[1], temp[2], temp[3]);
-
-	printf("Grid: \n%s\n", grid);
-	// printf("Offet: \n%d\n", offset);
-	printf("Gridsize: \n%d\n", gridsize);
+		printf("RETURN 0. Grid: \n%s\n", grid);
 	return (1);
 }
 
