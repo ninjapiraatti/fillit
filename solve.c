@@ -44,7 +44,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 			grid[temp[i] + offset + pos] = tletter;
 			i++;
 		}
-		pieces = pieces->next;
+		//pieces = pieces->next;
 		return (1);
 	}
 	//recursion(pieces, pos++, tletter, grid, gridsize);
@@ -85,6 +85,7 @@ int		fit_piece(char *grid, int gridsize)
 		}
 		else
 		{
+			// reset the board, start over from pos+1?
 			pos++;
 		}
 		i++;
