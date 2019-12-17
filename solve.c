@@ -72,7 +72,7 @@ int		fit_piece(char *grid, int gridsize)
 	int			piece1[4] = {2, 4, 5, 6};
 	int			piece2[4] = {0, 1, 2, 4};
 	int			piece3[4] = {0, 4, 8, 12};
-	int			piece4[4] = {1, 2, 4, 5};
+	int			piece4[4] = {0, 1, 4, 5};
 	int			piece5[4] = {0, 1, 4, 5};
 	int			piece6[4] = {0, 1, 2, 3};
 	char		tletter;
@@ -87,10 +87,13 @@ int		fit_piece(char *grid, int gridsize)
 	ft_lstadd(&pieces, ft_lstnew(piece6, 16));
 	pos = 0;
 	tletter = 'A';
-	if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
-		printf("RETURN 1. Grid: \n%s\n", grid);
-	else
-		printf("RETURN 0. Grid: \n%s\n", grid);
+	while (gridsize < 14)
+	{
+		if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
+			printf("RETURN 1. Grid: \n%s\n", grid);
+		gridsize++;
+	}
+	printf("RETURN 0. Grid: \n%s\n", grid);
 	return (1);
 }
 
@@ -99,7 +102,7 @@ int		solve(char *raw)
 	char	*grid;
 	int		gridsize;
 
-	gridsize = 5;
+	gridsize = 1;
 	raw = ft_strnew(0);
 	grid = ft_strdup("0000011111111\n0000011111111\n0000011111111\n0000011111111\n0000011111111\n");
 	fit_piece(grid, gridsize);
