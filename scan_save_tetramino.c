@@ -20,7 +20,7 @@ int		*topleft(char *chunk)
 		if (chunk[i] == '#')
 		{
 			top = i / 4;
-			printf("kkkk%d", top);
+			// printf("\nkkkk%d", top);
 			break ;
 		}
 		i++;
@@ -35,8 +35,20 @@ int		*topleft(char *chunk)
 		}
 		i++;
 	}
-	
 	printf("\ntet after move to top:\n");
+	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
+	i = 0;
+	j = 0;
+	while ((chunk[0] != '#' || chunk[4] != '#' || chunk[8] != '#' || chunk[12] != '#') && (j < 4 && i < 15))
+	{
+		if (chunk[i] == '#')
+		{
+			tet[j] = tet[j] - 1;
+			j++;
+		}
+		i++;
+	}
+	printf("\ntet after move to left:\n");
 	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
 	return (tet);
 }
