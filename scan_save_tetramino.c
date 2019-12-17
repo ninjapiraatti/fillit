@@ -7,61 +7,37 @@ int		*topleft(char *chunk)
 	int i;
 	int j;
 	int *tet;
+	int left;
+	int top;
 
 	tet = ft_memalloc(16);
 	i = 0;
 	j = 0;
-	//printf("\ntet after scan for # location:\n");
+	left = 0;
+	top = 0;
 	while (chunk[i] != '\0')
 	{
-		// if (chunk[i] == '#')
-		// {
-		// 	tet[j] = i;
-		// 	printf("%d ", tet[j]);
-		// 	j++;
-		// 	i++;
-		// }
-		// else 
-		// 	i++;
-		printf("\ntet after move up:\n");
-		if (chunk[0] != '#' && chunk[1] != '#' && chunk[2] != '#' && chunk[3] != '#')
+		if (chunk[i] == '#')
 		{
-			i = 0;
-			j = 0;
-			while ((chunk[0] != '#' && chunk[1] != '#' && chunk[2] != '#' && chunk[3] != '#') && (j < 4 && i < 16))
-			{
-				if (chunk[i] == '#')
-				{
-					tet[j] = i - 4;
-					printf("%d ", tet[j]);
-					j++;
-					i++;
-				}
-			else 
-				i++;
-			}
-		}
-		printf("\ntet after move left:\n");
-		if (chunk[0] != '#' && chunk[4] != '#' && chunk[8] != '#' && chunk[12] != '#')
-		{
-			i = 0;
-			j = 0;
-			while ((chunk[0] != '#' || chunk[4] != '#' || chunk[8] != '#' || chunk[12] != '#') && (j < 4 && i < 16))
-			{
-				if (chunk[i] == '#')
-				{
-					tet[j] = (i - 4) - 1;
-					printf("%d ", tet[j]);
-					j++;
-					i++;
-				}
-				else 
-					i++;
-			}
+			top = i / 4;
+			printf("kkkk%d", top);
+			break ;
 		}
 		i++;
 	}
-	printf("%d ", tet[j]);
+	i = 0;
+	while (chunk[i] != '\0')
+	{
+		if (chunk[i] == '#')
+		{
+			tet[j] = i - top * 4;
+			j++;
+		}
+		i++;
+	}
+	
+	printf("\ntet after move to top:\n");
+	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
 	return (tet);
 }
 
