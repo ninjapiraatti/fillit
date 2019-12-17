@@ -6,6 +6,7 @@ int		*topleft(char *chunk)
 {
 	int i;
 	int j;
+	int k;
 	int *tet;
 	int left;
 	int top;
@@ -39,14 +40,18 @@ int		*topleft(char *chunk)
 	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
 	i = 0;
 	j = 0;
-	while ((chunk[0] != '#' || chunk[4] != '#' || chunk[8] != '#' || chunk[12] != '#') && (j < 4 && i < 15))
+	k = 0;
+	while (chunk[i] != '#')
 	{
-		if (chunk[i] == '#')
+		while (k < 4)
 		{
-			tet[j] = tet[j] - 1;
-			j++;
+			i += (4 * k) + j;
+			k++;
 		}
-		i++;
+		j++;
+		i = j;
+		k = 0;
+		printf("I: %d, J: %d\n", i, j);
 	}
 	printf("\ntet after move to left:\n");
 	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
