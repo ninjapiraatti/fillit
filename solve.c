@@ -11,7 +11,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 
 	i = 0;
 	offset = 0;
-	if (pieces != NULL)
+	while (pieces != NULL)
 	{
 		temp = pieces->content;
 		while (i < 4 && pos <= 169)
@@ -35,14 +35,15 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 			}
 			//printf("Pos: \n%d\n", pos);
 		}
-		//printf("Origpos: %d, Pos: %d\nGrid: \n%s\n", origpos, pos, grid);
-		//getchar();
+		printf("Origpos: %d, Pos: %d\nGrid: \n%s\n", origpos, pos, grid);
+		getchar();
 		if (pos > 169)
 		{	
-			//printf("Failed to fit the piece");
+			printf("Failed to fit the piece %d\n", temp[3]);
 			return (0);
 		}
 		i = 0;
+		pos = origpos;
 		while (i < 4)
 		{
 			offset = ((temp[i] / 4) * 10);
@@ -63,12 +64,21 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 				grid[temp[i] + offset + pos] = '0';
 				i++;
 			}
-			recursion(pieces, ++origpos, --tletter, grid, gridsize);
+			i = 0;
+			pos++;
+			tletter--;
+			//recursion(pieces, ++origpos, --tletter, grid, gridsize);
 		}
+		
 		else
+		{
+			printf("Next piece did fit. Current piece: %d\n", temp[3]);
 			return (1);
-		return (0);
+		}
+		//printf("Returning 0 but why. Current piece: %d\n", temp[3]);
+		//return (0); // What is this.
 	}
+	printf("Out of pieces.\n");
 	return (1);
 }
 
@@ -77,12 +87,12 @@ int		fit_piece(char *grid, int gridsize)
 
 	int			pos;
 	t_list		*pieces;
-	int			piece1[4] = {0, 1, 4, 5};
+	int			piece1[4] = {2, 4, 5, 6};
 	int			piece2[4] = {0, 1, 2, 4};
-	int			piece3[4] = {1, 4, 5, 8};
-	int			piece4[4] = {0, 1, 4, 5};
+	int			piece3[4] = {0, 4, 8, 12};
+	int			piece4[4] = {1, 2, 4, 5};
 	int			piece5[4] = {0, 1, 4, 5};
-	//nt			piece6[4] = {0, 1, 2, 3};
+	int			piece6[4] = {0, 1, 2, 3};
 	char		tletter;
 	int			i;
 
@@ -92,7 +102,7 @@ int		fit_piece(char *grid, int gridsize)
 	ft_lstadd(&pieces, ft_lstnew(piece3, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece4, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece5, 16));
-	//ft_lstadd(&pieces, ft_lstnew(piece6, 16));
+	ft_lstadd(&pieces, ft_lstnew(piece6, 16));
 	pos = 0;
 	tletter = 'A';
 	if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
