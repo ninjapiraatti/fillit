@@ -64,10 +64,11 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 	return (1);
 }
 
-int		fit_piece(char *grid, int gridsize)
+int		fit_piece(char *grid, int gridsize, t_list *pieces)
 {
 
 	int			pos;
+	/*
 	t_list		*pieces;
 	int			piece1[4] = {2, 4, 5, 6};
 	int			piece2[4] = {0, 1, 2, 4};
@@ -75,18 +76,21 @@ int		fit_piece(char *grid, int gridsize)
 	int			piece4[4] = {1, 2, 4, 5};
 	int			piece5[4] = {0, 1, 2, 5};
 	int			piece6[4] = {0, 1, 2, 3};
+	*/
 	char		tletter;
 	int			i;
 	int			j;
 
 	i = 0;
 	j = 0;
+	/*
 	pieces = ft_lstnew(piece1, 16);
 	ft_lstadd(&pieces, ft_lstnew(piece2, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece3, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece4, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece5, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece6, 16));
+	*/
 	pos = 0;
 	tletter = 'A';
 	while (gridsize < 13)
@@ -119,14 +123,13 @@ int		fit_piece(char *grid, int gridsize)
 	return (1);
 }
 
-int		solve(char *raw)
+int		solve(t_list *pieces)
 {
 	char	*grid;
 	int		gridsize;
 
 	gridsize = 2;
-	raw = ft_strnew(0);
 	grid = ft_strdup("0011111111111\n0011111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n");
-	fit_piece(grid, gridsize);
+	fit_piece(grid, gridsize, pieces);
 	return (0);
 }

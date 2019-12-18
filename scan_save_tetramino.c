@@ -46,7 +46,7 @@ int		*topleft(char *chunk)
 		}
 		i++;
 	}
-	printf("\ntet after move to top:\n");
+	//printf("\ntet after move to top:\n");
 	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
 	j = 0;
 	while (tet[j] % 4 != 0)
@@ -56,33 +56,17 @@ int		*topleft(char *chunk)
 		ft_foreach(tet, 4);
 		j++;
 	}
-	printf("\ntet after move to left:\n");
-	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
+	//printf("\ntet after move to left:\n");
+	//printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
 	return (tet);
 }
 
-t_list *make_list(int *tet)
+void	ft_lstaddfront(t_list **alst, t_list *new)
 {
-	t_list *lst;
-	
-	lst = NULL;
-	if (lst == NULL)
-		lst = ft_lstnew(tet, 4);
-	else
-	{
-		if (lst)
-		{
-			while (lst->next)
-				lst = lst->next;
-			lst->next = ft_lstnew(tet, 4);
-		}
-		else
-			return (lst);
-	}
-	return(lst);
+	(*alst)->next = new;
 }
 
-void scan_save_tetramino(char *raw)
+void scan_save_tetramino(char *raw, t_list *pieces)
 {
 	int tet[4] = {0, 0, 0, 0};
 	char *chunk;
@@ -99,22 +83,22 @@ void scan_save_tetramino(char *raw)
 	l = 0;
 	intchunk = ft_memalloc(16);
 	tetnum = (ft_strlen(raw) / 16);
-	printf("tetnum:\n");
-	printf("%d\n", tetnum);
+	//printf("tetnum:\n");
+	//printf("%d\n", tetnum);
 	while (raw[i] != '\0')
 	{
 		while (j < tetnum)
 		{
 			chunk = ft_strsub(raw, (j * 16), 16);
-			printf("chunk:\n");
-			printf("%s\n", chunk);
-			printf("tet:\n");
+			// printf("chunk:\n");
+			// printf("%s\n", chunk);
+			// printf("tet:\n");
 			while (chunk[k] != '\0')
 			{
 				if (chunk[k] == '#')
 				{
 					tet[l] = k;
-					printf("%d ", tet[l]);
+					//printf("%d ", tet[l]);
 					l++;
 					k++;
 				}
@@ -125,13 +109,13 @@ void scan_save_tetramino(char *raw)
 			(chunk[0] != '#' && chunk[4] != '#' && chunk[8] != '#' && chunk[12] != '#'))
 				{
 				intchunk = topleft(chunk);
-				printf("\ntet after top left %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
+				//printf("\ntet after top left %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
 				}
 			k = 0;
-			make_list(tet);
+			ft_lstaddfront(&pieces, ft_lstnew(tet, 16));
 			l = 0;
 		j++;
-		printf("\n");
+		//printf("\n");
 		}
 	i++;
 	}

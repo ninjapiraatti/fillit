@@ -39,7 +39,10 @@ int		main(int argc, char **argv)
 	char	*line;
 	char	*raw;
 	int		fd;
+	t_list	*pieces;
 
+	pieces =  NULL;
+	pieces = ft_lstnew(ft_strdup("koiro"), 16);
 	fd = 0;
 	if (argc != 2)
 	{
@@ -54,8 +57,8 @@ int		main(int argc, char **argv)
 	}
 	asciicheck(raw);
 	validate(raw);
-	scan_save_tetramino(raw);
-	solve(raw);
+	scan_save_tetramino(raw, pieces);
+	solve(pieces);
 	//printf("RECURSION TEST: %d", recursiontester(8));
 	/*
 	if (validate(argv) == 1)
