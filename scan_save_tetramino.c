@@ -2,11 +2,21 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
+void	ft_foreach(int *tab, int length)
+{
+	int i;
+
+	i = 0;
+	while (length > i)
+	{
+		tab[i]--;
+		i++;
+	}
+}
 int		*topleft(char *chunk)
 {
 	int i;
 	int j;
-	int k;
 	int *tet;
 	int left;
 	int top;
@@ -38,20 +48,13 @@ int		*topleft(char *chunk)
 	}
 	printf("\ntet after move to top:\n");
 	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
-	i = 0;
 	j = 0;
-	k = 0;
-	while (chunk[i] != '#')
+	while (tet[j] % 4 != 0)
 	{
-		while (k < 4)
-		{
-			i += (4 * k) + j;
-			k++;
-		}
+		if (tet[0] == 0)
+			break ;
+		ft_foreach(tet, 4);
 		j++;
-		i = j;
-		k = 0;
-		printf("I: %d, J: %d\n", i, j);
 	}
 	printf("\ntet after move to left:\n");
 	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
@@ -64,26 +67,18 @@ t_list *make_list(int *tet)
 	
 	lst = NULL;
 	if (lst == NULL)
-	{
 		lst = ft_lstnew(tet, 4);
-		//printf("lst:\n");
-		//printf("%s\n", lst->content);
-	}
 	else
 	{
 		if (lst)
 		{
 			while (lst->next)
 				lst = lst->next;
-				// printf("next lst:\n");
-				// printf("%s\n", lst->content);
 			lst->next = ft_lstnew(tet, 4);
 		}
 		else
 			return (lst);
 	}
-	// printf("final lst:\n");
-	// printf("%s\n", lst->content);
 	return(lst);
 }
 
@@ -128,9 +123,10 @@ void scan_save_tetramino(char *raw)
 			}	
 			if ((chunk[0] != '#' && chunk[1] != '#' && chunk[2] != '#' && chunk[3] != '#') || 
 			(chunk[0] != '#' && chunk[4] != '#' && chunk[8] != '#' && chunk[12] != '#'))
+				{
 				intchunk = topleft(chunk);
-			printf("\n");
-			printf("INTCHUNKNKNK: %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
+				printf("\ntet after top left %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
+				}
 			k = 0;
 			make_list(tet);
 			l = 0;
