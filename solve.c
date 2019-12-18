@@ -77,15 +77,17 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	int			piece5[4] = {0, 1, 2, 5};
 	int			piece6[4] = {0, 1, 2, 3};
 	*/
+	//int			piece6[4] = {0, 1, 2, 3};
 	char		tletter;
 	int			i;
 	int			j;
 
 	i = 0;
 	j = 0;
+	
+	//pieces = ft_lstnew(piece6, 16);
+	//ft_lstadd(&pieces, ft_lstnew(piece6, 16));
 	/*
-	pieces = ft_lstnew(piece1, 16);
-	ft_lstadd(&pieces, ft_lstnew(piece2, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece3, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece4, 16));
 	ft_lstadd(&pieces, ft_lstnew(piece5, 16));

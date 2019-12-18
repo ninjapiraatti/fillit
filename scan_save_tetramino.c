@@ -47,7 +47,7 @@ int		*topleft(char *chunk)
 		i++;
 	}
 	//printf("\ntet after move to top:\n");
-	printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
+	//printf("%d %d %d %d\n", tet[0], tet[1], tet[2], tet[3]);
 	j = 0;
 	while (tet[j] % 4 != 0)
 	{
@@ -61,10 +61,30 @@ int		*topleft(char *chunk)
 	return (tet);
 }
 
-void	ft_lstaddfront(t_list **alst, t_list *new)
+void	make_list(t_list **alst, t_list *new)
 {
-	(*alst)->next = new;
+	t_list	*lst;
+
+	lst = *alst;
+	if (lst)
+	{
+		while (lst->next)
+			lst = lst->next;
+		lst->next = new;
+	}
+	else
+		*alst = new;
 }
+/*
+void	ft_lstaddfront(t_list *alst, t_list *new)
+{
+	if(!alst)
+		alst = new;
+	else
+		alst->next = new;
+	alst = 
+}
+*/
 
 void scan_save_tetramino(char *raw, t_list *pieces)
 {
@@ -112,7 +132,7 @@ void scan_save_tetramino(char *raw, t_list *pieces)
 				//printf("\ntet after top left %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
 				}
 			k = 0;
-			ft_lstaddfront(&pieces, ft_lstnew(tet, 16));
+			make_list(&pieces, ft_lstnew(tet, 16));
 			l = 0;
 		j++;
 		//printf("\n");

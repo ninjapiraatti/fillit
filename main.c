@@ -42,7 +42,6 @@ int		main(int argc, char **argv)
 	t_list	*pieces;
 
 	pieces =  NULL;
-	pieces = ft_lstnew(ft_strdup("koiro"), 16);
 	fd = 0;
 	if (argc != 2)
 	{
