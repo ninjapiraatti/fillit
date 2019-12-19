@@ -39,24 +39,22 @@ int		*top(char *chunk)
 	i = 0;
 	j = 0;
 	top = 0;
-	while (chunk[i] != '\0')
+	while (chunk[i++] != '\0')
 	{
 		if (chunk[i] == '#')
 		{
 			top = i / 4;
 			break ;
 		}
-		i++;
 	}
 	i = 0;
-	while (chunk[i] != '\0')
+	while (chunk[i++] != '\0')
 	{
 		if (chunk[i] == '#')
 		{
 			tet[j] = i - top * 4;
 			j++;
 		}
-		i++;
 	}
 	j = 0;
 	left(tet);
