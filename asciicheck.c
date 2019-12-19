@@ -29,11 +29,12 @@ int	asciicheck(char *raw)
 	{
 		//printf("success! total sum of ascii values:\n");
 		//printf("%d\n", temp);
+		return (1);
 	}
 	else 
 	{
 		//printf("not a success: sum of ascii values is not divisible by 692\n");
-		return (1);
+		return (0);
 	}
 	return (0);
 }
