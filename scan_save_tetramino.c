@@ -14,7 +14,7 @@ void	ft_foreach(int *tab, int length)
 	}
 }
 
-void	left(int *tet)
+int		*left(int *tet)
 {
 	int j;
 
@@ -26,6 +26,7 @@ void	left(int *tet)
 		ft_foreach(tet, 4);
 		j++;
 	}
+	return (tet);
 }
 
 int		*top(char *chunk)
@@ -54,8 +55,7 @@ int		*top(char *chunk)
 			tet[j++] = i - top * 4;
 	}
 	j = 0;
-	left(tet);
-	return (tet);
+	return (left(tet));
 }
 
 t_list	*make_list(t_list *first, t_list **alst, t_list *new)
