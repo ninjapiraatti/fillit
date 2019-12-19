@@ -16,8 +16,8 @@ int	asciicheck(char *raw)
 	hashtag = ft_strchr(raw, '#');
 	if (!hashtag && !period)
 	{
-		//printf("file is not valid: characters other than '.' and '#'\n");
-		return (1);
+		printf("file is not valid: characters other than '.' and '#'\n");
+		return (0);
 	}
 	while (raw[i] != '\0')
 	{	
@@ -33,7 +33,7 @@ int	asciicheck(char *raw)
 	}
 	else 
 	{
-		//printf("not a success: sum of ascii values is not divisible by 692\n");
+		printf("not a success: sum of ascii values is not divisible by 692\n");
 		return (0);
 	}
 	return (0);
