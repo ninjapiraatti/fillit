@@ -119,11 +119,10 @@ char	*stringspectacular(char *chunk)
 	char	*str2;
 	int		i;
 
-	str1 = "0011111111111\n";
+	str1 = "0011111111111\n0011111111111\n";
 	str2 = "1111111111111\n";
-	i = 9;
-	chunk = ft_strjoin(str1, str1);
-	chunk = ft_strjoin(chunk, str2);
+	i = 8;
+	chunk = ft_strjoin(str1, str2);
 	while (chunk[i] > 0)
 	{
 		chunk = ft_strjoin(chunk, str2);
