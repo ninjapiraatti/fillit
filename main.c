@@ -41,7 +41,7 @@ int		main(int argc, char **argv)
 	int		fd;
 	t_list	*pieces;
 
-	pieces =  NULL;
+	pieces = NULL;
 	fd = 0;
 	if (argc != 2)
 	{
@@ -56,8 +56,9 @@ int		main(int argc, char **argv)
 	}
 	asciicheck(raw);
 	validate(raw);
-	scan_save_tetramino(raw, pieces);
-	solve(pieces);
+	//scan_save_tetramino(raw, pieces);
+	//solve(pieces);
+	solve(scan_save_tetramino(raw, pieces));
 	//printf("RECURSION TEST: %d", recursiontester(8));
 	/*
 	if (validate(argv) == 1)

@@ -119,7 +119,8 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 			i = 0;
 			j = 0;
 			pos = 0;
-		}	
+		}
+		//printf("nGrid: \n%s\n", grid);	
 	}	
 	printf("RETURN 0. Grid: \n%s\n", grid);
 	return (1);

@@ -61,11 +61,13 @@ int		*topleft(char *chunk)
 	return (tet);
 }
 
-void	make_list(t_list **alst, t_list *new)
+t_list	*make_list(t_list *first, t_list **alst, t_list *new)
 {
 	t_list	*lst;
 
 	lst = *alst;
+	if (!first)
+		first = *alst;
 	if (lst)
 	{
 		while (lst->next)
@@ -74,19 +76,21 @@ void	make_list(t_list **alst, t_list *new)
 	}
 	else
 		*alst = new;
+	return (*alst);
 }
+
 /*
-void	ft_lstaddfront(t_list *alst, t_list *new)
+t_list	*ft_lstaddfront(t_list *alst, t_list *new)
 {
 	if(!alst)
 		alst = new;
 	else
 		alst->next = new;
-	alst = 
+	return (alst);
 }
 */
 
-void scan_save_tetramino(char *raw, t_list *pieces)
+t_list *scan_save_tetramino(char *raw, t_list *pieces)
 {
 	int tet[4] = {0, 0, 0, 0};
 	char *chunk;
@@ -96,11 +100,13 @@ void scan_save_tetramino(char *raw, t_list *pieces)
 	int j;
 	int k;
 	int l;
+	t_list	*first;
 
 	i = 0;
 	j = 0;
 	k = 0;
 	l = 0;
+	first =  NULL;
 	intchunk = ft_memalloc(16);
 	tetnum = (ft_strlen(raw) / 16);
 	//printf("tetnum:\n");
@@ -132,11 +138,14 @@ void scan_save_tetramino(char *raw, t_list *pieces)
 				//printf("\ntet after top left %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
 				}
 			k = 0;
-			make_list(&pieces, ft_lstnew(tet, 16));
+			//pieces = ft_lstnew(tet, 16);
+			pieces = make_list(first, &pieces, ft_lstnew(tet, 16));
+			//pieces = (ft_lstaddfront(pieces, ft_lstnew(tet, 16)));
 			l = 0;
 		j++;
 		//printf("\n");
 		}
 	i++;
 	}
+	return (pieces);
 }
