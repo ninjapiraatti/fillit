@@ -1,5 +1,6 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
+#include <stdio.h>
 
 void	ft_foreach(int *tab, int length)
 {
@@ -20,7 +21,7 @@ void	left(int *tet)
 	j = 0;
 	while (tet[j] % 4 != 0)
 	{
-		if (tet[0] == 0)
+		if (tet[0] == 0 || tet[2] == 4)
 			break ;
 		ft_foreach(tet, 4);
 		j++;

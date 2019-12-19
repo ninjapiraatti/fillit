@@ -106,7 +106,7 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 			i = 0;
 			j = 0;
 			pos = 0;
-		}	
+		}
 	}
 	return (1);
 }
@@ -119,6 +119,6 @@ int		solve(t_list *pieces)
 	gridsize = 2;
 	grid = ft_strdup("0011111111111\n0011111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n");
 	fit_piece(grid, gridsize, pieces);
-	print_grid(grid);	
+	print_grid(grid);
 	return (0);
 }
