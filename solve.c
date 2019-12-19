@@ -29,8 +29,6 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 				pos++;
 			}
 		}
-		//printf("Origpos: %d, Pos: %d\nGrid: \n%s\n", origpos, pos, grid);
-		//getchar();
 		if (pos > 169)
 			return (0);
 		i = 0;
@@ -55,18 +53,13 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 			tletter--;
 		}
 		else
-		{
-			//printf("Next piece did fit. Current piece: %d\n", temp[3]);
 			return (1);
-		}
 	}
-	//printf("Out of pieces.\n");
 	return (1);
 }
 
 int		fit_piece(char *grid, int gridsize, t_list *pieces)
 {
-
 	int			pos;
 	char		tletter;
 	int			i;
@@ -79,10 +72,7 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	while (gridsize < 13)
 	{
 		if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
-		{
-			printf("RETURN 1. Grid: \n%s\n", grid);
 			return (1);
-		}
 		else {
 			while (i < (gridsize * gridsize))
 			{
@@ -100,10 +90,8 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 			i = 0;
 			j = 0;
 			pos = 0;
-		}
-		//printf("nGrid: \n%s\n", grid);	
-	}	
-	printf("RETURN 0. Grid: \n%s\n", grid);
+		}	
+	}
 	return (1);
 }
 
@@ -115,5 +103,6 @@ int		solve(t_list *pieces)
 	gridsize = 2;
 	grid = ft_strdup("0011111111111\n0011111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n");
 	fit_piece(grid, gridsize, pieces);
+	printf("Grid: \n%s\n", grid);	
 	return (0);
 }

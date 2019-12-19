@@ -4,35 +4,6 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 #include <fcntl.h>
-/*
-int		recursiontester(int j)
-{
-	int 	num;
-
-	srand(time(0));
-	num = (rand() % (100 - 0 + 1)) + 0;
-	if (num < 50)
-		j++;
-	else
-		j--;
-	printf("%d ", j);
-	if (j < 1)
-	{
-		printf("went to zero.");
-		return (0);
-	}
-	else if (j > 15)
-	{
-		printf("went to hero.");
-		return (1);
-	}
-	getchar();
-	srand(time(0));
-	num = (rand() % (100 - 0 + 1)) + 0;
-	recursiontester(j);
-	return(0);
-}
-*/
 
 int		main(int argc, char **argv)
 {
@@ -54,12 +25,17 @@ int		main(int argc, char **argv)
 	{
 		raw = ft_strjoin(raw, line);
 	}
-	asciicheck(raw);
-	validate(raw);
-	//scan_save_tetramino(raw, pieces);
-	//solve(pieces);
+	if (asciicheck(raw) == 0)
+	{
+		printf("Not valid ascii.");
+		return (0);
+	}
+	if (validate(raw) == 0)
+	{
+		printf("Error in tetriminos.");
+		return (0);
+	}
 	solve(scan_save_tetramino(raw, pieces));
-	//printf("RECURSION TEST: %d", recursiontester(8));
 	/*
 	if (validate(argv) == 1)
 		ft_putstr("A valid file.");
