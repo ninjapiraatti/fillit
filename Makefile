@@ -3,7 +3,6 @@ NAME = fillit
 
 SRCS = 	main.c \
 		validate.c \
-		asciicheck.c \
 		solve.c \
 		scan_save_tetramino.c \
 

@@ -25,11 +25,6 @@ int		main(int argc, char **argv)
 	{
 		raw = ft_strjoin(raw, line);
 	}
-	if (asciicheck(raw) == 0)
-	{
-		printf("Not valid ascii.");
-		return (0);
-	}
 	if (validate(raw) == 0)
 	{
 		printf("Error in tetriminos.");
