@@ -2,6 +2,22 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
+void	print_grid(char *grid)
+{
+	int		i;
+
+	i = 0;
+	while (grid[i] != '\0')
+	{
+		while(grid[i] == '1')
+			i++;
+		if(grid[i] == '0')
+			grid[i] = '.';
+		ft_putchar(grid[i]);
+		i++;
+	}
+}
+
 int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 {
 	int			i;
@@ -103,6 +119,6 @@ int		solve(t_list *pieces)
 	gridsize = 2;
 	grid = ft_strdup("0011111111111\n0011111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n");
 	fit_piece(grid, gridsize, pieces);
-	printf("Grid: \n%s\n", grid);	
+	print_grid(grid);	
 	return (0);
 }
