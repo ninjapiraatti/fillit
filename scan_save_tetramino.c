@@ -51,10 +51,7 @@ int		*top(char *chunk)
 	while (chunk[i++] != '\0')
 	{
 		if (chunk[i] == '#')
-		{
-			tet[j] = i - top * 4;
-			j++;
-		}
+			tet[j++] = i - top * 4;
 	}
 	j = 0;
 	left(tet);
