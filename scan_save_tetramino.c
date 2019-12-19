@@ -21,7 +21,7 @@ void	left(int *tet)
 	j = 0;
 	while (tet[j] % 4 != 0)
 	{
-		if (tet[0] == 0 || tet[2] == 4)
+		if (tet[0] == 0 || tet[1] == 4 || tet[2] == 4 || tet[2] == 8)
 			break ;
 		ft_foreach(tet, 4);
 		j++;
