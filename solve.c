@@ -9,9 +9,9 @@ void	print_grid(char *grid)
 	i = 0;
 	while (grid[i] != '\0')
 	{
-		while(grid[i] == '1')
+		while (grid[i] == '1')
 			i++;
-		if(grid[i] == '0')
+		if (grid[i] == '0')
 			grid[i] = '.';
 		ft_putchar(grid[i]);
 		i++;
@@ -33,7 +33,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 		while (i < 4 && pos <= 169)
 		{
 			offset = ((temp[i] / 4) * 10);
-			if((grid[temp[i] + offset + pos] - 48) == 0)
+			if ((grid[temp[i] + offset + pos] - 48) == 0)
 			{
 				if (i == 0)
 					origpos = pos;
@@ -90,7 +90,8 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	{
 		if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
 			return (1);
-		else {
+		else 
+		{
 			while (i < (gridsize * gridsize))
 			{
 				while (j < gridsize)
