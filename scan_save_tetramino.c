@@ -92,9 +92,8 @@ t_list	*ft_lstaddfront(t_list *alst, t_list *new)
 
 t_list *scan_save_tetramino(char *raw, t_list *pieces)
 {
-	int tet[4] = {0, 0, 0, 0};
+	//int tet[4] = {0, 0, 0, 0};
 	char *chunk;
-	int	*intchunk;
 	int tetnum;
 	int i;
 	int j;
@@ -107,7 +106,6 @@ t_list *scan_save_tetramino(char *raw, t_list *pieces)
 	k = 0;
 	l = 0;
 	first =  NULL;
-	intchunk = ft_memalloc(16);
 	tetnum = (ft_strlen(raw) / 16);
 	//printf("tetnum:\n");
 	//printf("%d\n", tetnum);
@@ -116,30 +114,7 @@ t_list *scan_save_tetramino(char *raw, t_list *pieces)
 		while (j < tetnum)
 		{
 			chunk = ft_strsub(raw, (j * 16), 16);
-			// printf("chunk:\n");
-			// printf("%s\n", chunk);
-			// printf("tet:\n");
-			while (chunk[k] != '\0')
-			{
-				if (chunk[k] == '#')
-				{
-					tet[l] = k;
-					//printf("%d ", tet[l]);
-					l++;
-					k++;
-				}
-				else 
-					k++;
-			}	
-			if ((chunk[0] != '#' && chunk[1] != '#' && chunk[2] != '#' && chunk[3] != '#') || 
-			(chunk[0] != '#' && chunk[4] != '#' && chunk[8] != '#' && chunk[12] != '#'))
-				{
-				intchunk = topleft(chunk);
-				//printf("\ntet after top left %d %d %d %d \n", intchunk[0], intchunk[1], intchunk[2], intchunk[3]);
-				}
-			k = 0;
-			//pieces = ft_lstnew(tet, 16);
-			pieces = make_list(first, &pieces, ft_lstnew(tet, 16));
+			pieces = make_list(first, &pieces, ft_lstnew(topleft(chunk), 16));
 			//pieces = (ft_lstaddfront(pieces, ft_lstnew(tet, 16)));
 			l = 0;
 		j++;
