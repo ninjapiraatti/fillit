@@ -1,5 +1,4 @@
 #include "libft/includes/libft.h"
-#include "fillit.h"
 
 void	print_grid(char *grid)
 {
