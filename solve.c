@@ -1,4 +1,3 @@
-#include <stdio.h> // REMOVE IT YOU DUMBASS
 #include "libft/includes/libft.h"
 #include "fillit.h"
 
