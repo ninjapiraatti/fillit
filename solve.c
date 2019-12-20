@@ -9,9 +9,9 @@ void	print_grid(char *grid)
 	i = 0;
 	while (grid[i] != '\0')
 	{
-		while(grid[i] == '1')
+		while (grid[i] == '1')
 			i++;
-		if(grid[i] == '0')
+		if (grid[i] == '0')
 			grid[i] = '.';
 		ft_putchar(grid[i]);
 		i++;
@@ -33,7 +33,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 		while (i < 4 && pos <= 169)
 		{
 			offset = ((temp[i] / 4) * 10);
-			if((grid[temp[i] + offset + pos] - 48) == 0)
+			if ((grid[temp[i] + offset + pos] - 48) == 0)
 			{
 				if (i == 0)
 					origpos = pos;
@@ -89,7 +89,8 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	{
 		if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
 			return (1);
-		else {
+		else
+		{
 			while (i < (gridsize * gridsize))
 			{
 				while (j < gridsize)
@@ -111,13 +112,33 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	return (1);
 }
 
+char	*stringspectacular(char *chunk)
+{
+	char	*str1;
+	char	*str2;
+	int		i;
+
+	str1 = "0011111111111\n0011111111111\n";
+	str2 = "1111111111111\n";
+	i = 8;
+	chunk = ft_strjoin(str1, str2);
+	while (chunk[i] > 0)
+	{
+		chunk = ft_strjoin(chunk, str2);
+		i--;
+	}
+	return (chunk);
+}
+
 int		solve(t_list *pieces)
 {
+	char	*chunk;
 	char	*grid;
 	int		gridsize;
 
+	chunk = NULL;
+	grid = stringspectacular(chunk);
 	gridsize = 2;
-	grid = ft_strdup("0011111111111\n0011111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n1111111111111\n");
 	fit_piece(grid, gridsize, pieces);
 	print_grid(grid);
 	return (0);

@@ -1,6 +1,5 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
-#include <stdio.h>
 
 void	ft_foreach(int *tab, int length)
 {
@@ -14,7 +13,7 @@ void	ft_foreach(int *tab, int length)
 	}
 }
 
-void	left(int *tet)
+int		*left(int *tet)
 {
 	int j;
 
@@ -26,6 +25,7 @@ void	left(int *tet)
 		ft_foreach(tet, 4);
 		j++;
 	}
+	return (tet);
 }
 
 int		*top(char *chunk)
@@ -39,28 +39,22 @@ int		*top(char *chunk)
 	i = 0;
 	j = 0;
 	top = 0;
-	while (chunk[i] != '\0')
+	while (chunk[i++] != '\0')
 	{
 		if (chunk[i] == '#')
 		{
 			top = i / 4;
 			break ;
 		}
-		i++;
 	}
 	i = 0;
-	while (chunk[i] != '\0')
+	while (chunk[i++] != '\0')
 	{
 		if (chunk[i] == '#')
-		{
-			tet[j] = i - top * 4;
-			j++;
-		}
-		i++;
+			tet[j++] = i - top * 4;
 	}
 	j = 0;
-	left(tet);
-	return (tet);
+	return (left(tet));
 }
 
 t_list	*make_list(t_list *first, t_list **alst, t_list *new)
