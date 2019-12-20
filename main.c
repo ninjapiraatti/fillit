@@ -1,6 +1,3 @@
-#include <stdio.h> // REMOVE IT YOU DUMBASS
-#include <stdlib.h>
-#include <time.h>
 #include "libft/includes/libft.h"
 #include "fillit.h"
 #include <fcntl.h>
@@ -28,17 +25,7 @@ int		main(int argc, char **argv)
 		raw = ft_strjoin(raw, line);
 	}
 	if (validate(raw) == 0)
-	{
-		printf("Error in tetriminos.");
 		return (0);
-	}
 	solve(scan_save_tetramino(raw, pieces));
-	/*
-	if (validate(argv) == 1)
-		ft_putstr("A valid file.");
-	else
-		ft_putstr("An invalid file.");
-	printf("argc: %d\n", argc);
-	*/
 	return (0);
 }
