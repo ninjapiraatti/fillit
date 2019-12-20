@@ -79,37 +79,28 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid)
 
 int		fit_piece(char *grid, int gridsize, t_list *pieces)
 {
-	int			pos;
 	char		tletter;
 	int			i;
 	int			j;
 
-	i = 0;
+	i = -1;
 	j = 0;
-	pos = 0;
 	tletter = 'A';
 	while (gridsize < 13)
 	{
-		if (recursion(pieces, pos, tletter, grid) == 1)
+		if (recursion(pieces, 0, tletter, grid) == 1)
 			return (1);
 		else
 		{
-			while (i < (gridsize * gridsize))
+			while (j++ < gridsize)
 			{
-				while (j < gridsize)
-				{
-					grid[pos] = '0';
-					j++;
-					pos++;
-					i++;
-				}
-				j = 0;
-				pos += 14 - gridsize;
+				while ((++i % 14) < gridsize)
+					grid[i] = '0';
+				i += 13 - gridsize;
 			}
 			gridsize++;
 			i = 0;
 			j = 0;
-			pos = 0;
 		}
 	}
 	return (1);
