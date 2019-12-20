@@ -8,7 +8,9 @@ int		main(int argc, char **argv)
 	char	*raw;
 	int		fd;
 	t_list	*pieces;
+	int		i;
 
+	i = 0;
 	pieces = NULL;
 	fd = 0;
 	if (argc != 2)
@@ -23,9 +25,18 @@ int		main(int argc, char **argv)
 		if (ft_strlen(line) > 5)
 			break ;
 		raw = ft_strjoin(raw, line);
+		i++;
+		//ft_putnbr(i);
+		if (i % 5 == 0)
+		{
+			if (validate(raw) == 0)
+			{
+				//ft_putstr("Error on linebreaks.");
+				return (0);
+			}
+			i = 0;
+		}
 	}
-	if (validate(raw) == 0)
-		return (0);
 	solve(scan_save_tetramino(raw, pieces));
 	return (0);
 }
