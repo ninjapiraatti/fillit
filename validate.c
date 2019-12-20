@@ -1,4 +1,3 @@
-#include <stdio.h> // REMOVE IT YOU DUMBASS
 #include "libft/includes/libft.h"
 
 int	asciicheck(char *raw)
@@ -38,32 +37,14 @@ int		validate_tetrimino(int start, char *raw)
 		if ((raw[start + i] == '#') && ((start + i + 1) % 16 != 0))
 		{
 			if ((raw[start + i + 4] == '#') && ((start + i + 1) % 16 < 13))
-			{
-				//printf("i and modulo: %d, %d\n", i, ((i + 1) % 16));
 				ncount += 2;
-			}
 			if (raw[start + i + 1] == '#')
-			{
 				ncount += 2;
-				//printf("i: %d\n", i);
-			}
-			/*
-			if ((raw[i + 1] == '#') && (raw[i - 1] == '#') && 
-			(raw[i + 4] == '#') && (i % 16 != 0))
-			{
-				ncount -= 2;
-				printf("i: %d\n", i);
-			}
-			*/
 		}
 		i++;
 	}
 	if (ncount == 6 || ncount == 8)
-	{
-		// printf("VALID at ncount: %d\n", ncount);
 		return (1);
-	}
-	// printf("INVALID at ncount: %d\n", ncount);
 	return (0);
 }
 
@@ -87,14 +68,9 @@ int		validate_nbrs(char *raw)
 			j++;
 		}
 		if (sharps != 4)
-		{
-			printf("Wrong number of sharps");
 			return (0);
-		}
 		else if (validate_tetrimino(i, raw) == 0)
-		{
 			return (0);
-		}
 		sharps = 0;
 		i += j;
 		j = 0;
