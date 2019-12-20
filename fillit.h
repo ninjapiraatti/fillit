@@ -13,9 +13,9 @@ typedef struct	s_grid
 }				t_grid;
 
 int		validate(char *raw);
-int		asciicheck(char *raw);
 int		solve(t_list *pieces);
 t_list	*scan_save_tetramino(char *raw, t_list *pieces);
+void	print_grid(char *grid);
 
 # define BUFF_SIZE 21
 

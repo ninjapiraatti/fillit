@@ -5,6 +5,7 @@ SRCS = 	main.c \
 		validate.c \
 		solve.c \
 		scan_save_tetramino.c \
+		print_grid.c \
 
 INCS = 	libft/includes/libft.h \
 
