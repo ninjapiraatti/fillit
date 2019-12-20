@@ -21,53 +21,53 @@ void	print_grid(char *grid)
 	ft_putchar(grid[i]);
 }
 
-int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
+int		find_place(int pos, char *grid, int *temp)
 {
-	int			i;
-	int			offset;
-	int			*temp;
-	int			origpos;
+	int		offset;
+	int		i;
+	int		origpos;
 
 	i = 0;
-	offset = 0;
+	origpos = 0;
+	while (i < 4 && pos <= 169)
+	{
+		offset = ((temp[i] / 4) * 10);
+		if ((grid[temp[i] + offset + pos] - 48) == 0)
+		{
+			if (i == 0)
+				origpos = pos;
+			i++;
+		}
+		else
+		{
+			i = 0;
+			pos++;
+		}
+	}
+	if (pos > 169)
+		return (-1);
+	return (origpos);
+}
+
+int		recursion(t_list *pieces, int pos, char tletter, char *grid)
+{
+	int			i;
+	int			*temp;
+
+	i = -1;
 	while (pieces != NULL)
 	{
 		temp = pieces->content;
-		while (i < 4 && pos <= 169)
-		{
-			offset = ((temp[i] / 4) * 10);
-			if ((grid[temp[i] + offset + pos] - 48) == 0)
-			{
-				if (i == 0)
-					origpos = pos;
-				i++;
-			}
-			else
-			{
-				i = 0;
-				pos++;
-			}
-		}
-		if (pos > 169)
+		if ((pos = find_place(pos, grid, temp)) < 0)
 			return (0);
-		i = 0;
-		pos = origpos;
-		while (i < 4)
+		while (++i < 4)
+			grid[temp[i] + ((temp[i] / 4) * 10) + pos] = tletter;
+		if (recursion(pieces->next, 0, ++tletter, grid) == 0)
 		{
-			offset = ((temp[i] / 4) * 10);
-			grid[temp[i] + offset + pos] = tletter;
-			i++;
-		}
-		if (recursion(pieces->next, 0, ++tletter, grid, gridsize) == 0)
-		{
-			i = 0;
-			while (i < 4)
-			{
-				offset = ((temp[i] / 4) * 10);
-				grid[temp[i] + offset + pos] = '0';
-				i++;
-			}
-			i = 0;
+			i = -1;
+			while (++i < 4)
+				grid[temp[i] + ((temp[i] / 4) * 10) + pos] = '0';
+			i = -1;
 			pos++;
 			tletter--;
 		}
@@ -90,7 +90,7 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	tletter = 'A';
 	while (gridsize < 13)
 	{
-		if (recursion(pieces, pos, tletter, grid, gridsize) == 1)
+		if (recursion(pieces, pos, tletter, grid) == 1)
 			return (1);
 		else
 		{
