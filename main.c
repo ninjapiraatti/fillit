@@ -23,6 +23,8 @@ int		main(int argc, char **argv)
 	raw = ft_strnew(0);
 	while (get_next_line(fd, &line) == 1)
 	{
+		if (ft_strlen(line) > 5)
+			break ;
 		raw = ft_strjoin(raw, line);
 	}
 	if (validate(raw) == 0)

@@ -67,7 +67,6 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
 			i = 0;
 			pos++;
 			tletter--;
-			printf("grid: %s\n", grid);
 		}
 		else
 			return (1);
