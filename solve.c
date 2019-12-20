@@ -13,9 +13,12 @@ void	print_grid(char *grid)
 			i++;
 		if (grid[i] == '0')
 			grid[i] = '.';
+		if (grid[i] == '\n' && grid[i + 1] == '1')
+			break ;
 		ft_putchar(grid[i]);
 		i++;
 	}
+	ft_putchar(grid[i]);
 }
 
 int		recursion(t_list *pieces, int pos, char tletter, char *grid, int gridsize)
