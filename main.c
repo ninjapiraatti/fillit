@@ -1,6 +1,7 @@
 #include "libft/includes/libft.h"
 #include "fillit.h"
 #include <fcntl.h>
+#include <stdio.h>
 
 int		main(int argc, char **argv)
 {
@@ -8,11 +9,11 @@ int		main(int argc, char **argv)
 	char	*raw;
 	int		fd;
 	t_list	*pieces;
-	int		i;
+	// int i;
 
-	i = 0;
 	pieces = NULL;
 	fd = 0;
+	// i = 0;
 	if (argc != 2)
 	{
 		ft_putstr("usage: fillit <filename>.\n");
@@ -21,6 +22,7 @@ int		main(int argc, char **argv)
 	if ((fd = open(argv[1], O_RDONLY)) != 3)
 		return (0);
 	raw = ft_strnew(0);
+
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (ft_strlen(line) > 5)

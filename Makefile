@@ -12,7 +12,7 @@ INCS = 	libft/includes/libft.h \
 CFLAGS = -Wall -Wextra -Werror
 
 all:
-	gcc $(CFLAGS) $(SRCS) -I $(INCS) -L./libft -lft
+	gcc $(CFLAGS) -o $(NAME) $(SRCS) -I $(INCS) -L./libft -lft
 
 debug:
 	gcc -g $(CFLAGS) $(SRCS) -I $(INCS) -L./libft -lft
