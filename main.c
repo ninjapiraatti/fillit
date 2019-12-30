@@ -27,7 +27,8 @@ int		main(int argc, char **argv)
 			return (0);
 		raw = ft_strjoin(raw, line);
 		i++;
-		//ft_putnbr(i);
+		ft_putnbr(i);
+		ft_putstr(line);
 		/*
 		if (validate(raw) == 0)
 		{
@@ -37,12 +38,17 @@ int		main(int argc, char **argv)
 		*/
 		if (i % 5 == 0)
 		{
+			ft_putstr("Divisible by 5\n");
 			if (validate(raw) == 0)
 			{
 				ft_putstr("Error somewhere.");
 				return (0);
 			}
 			i = 0;
+		}
+		if (line[0] == '\n')
+		{
+			ft_putstr("Linebreak");
 		}
 	}
 	if (validate(raw) == 0)
