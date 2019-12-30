@@ -9,9 +9,11 @@ int		main(int argc, char **argv)
 	char	*raw;
 	int		fd;
 	int 	i;
+	t_list	*pieces;
 
 	fd = 0;
 	i = 0;
+	pieces = NULL;
 	if (argc != 2)
 	{
 		ft_putstr("usage: fillit <filename>.\n");
