@@ -48,7 +48,7 @@ int		main(int argc, char **argv)
 		}
 		if (line[0] == '\n')
 		{
-			ft_putstr("Linebreak");
+			ft_putchar(line[0]);
 		}
 	}
 	if (validate(raw) == 0)
