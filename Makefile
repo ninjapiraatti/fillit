@@ -1,4 +1,3 @@
-
 NAME = fillit
 
 SRCS = 	main.c \
@@ -11,7 +10,9 @@ INCS = 	libft/includes/libft.h \
 
 CFLAGS = -Wall -Wextra -Werror
 
-all:
+all: $(NAME)
+
+$(NAME):
 	gcc $(CFLAGS) -o $(NAME) $(SRCS) -I $(INCS) -L./libft -lft
 
 debug:
@@ -20,10 +21,10 @@ debug:
 .PHONY: clean fclean re exe debug all
 
 clean:
-	rm -f $(NAME)
+	/bin/rm -f $(NAME)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
