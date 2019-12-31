@@ -72,10 +72,7 @@ int		validate_nbrs(char *raw)
 		if (sharps != 4)
 			return (0);
 		else if (validate_tetrimino(i, raw) == 0)
-		{
-			ft_putstr("Tetr fail");
 			return (0);
-		}
 		sharps = 0;
 		i += j;
 		j = 0;
@@ -86,14 +83,8 @@ int		validate_nbrs(char *raw)
 int		validate(char *raw)
 {
 	if (validate_nbrs(raw) == 0)
-	{
-		ft_putstr("Nbrs fail");
 		return (0);
-	}
 	if (asciicheck(raw) == 0)
-	{
-		ft_putstr("Ascii fail");
 		return (0);
-	}
 	return (1);
 }

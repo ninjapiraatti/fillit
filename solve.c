@@ -86,32 +86,41 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	return (1);
 }
 
-char	*stringspectacular(char *chunk)
+char	*stringspectacular(char *spectacular)
 {
+	int		i;
+	int 	j;
+	int		k;
 	char	*str1;
 	char	*str2;
-	int		i;
 
-	str1 = "0011111111111\n0011111111111\n";
-	str2 = "1111111111111\n";
-	i = 8;
-	chunk = ft_strjoin(str1, str2);
-	while (chunk[i] > 0)
+	str1 = ft_strdup("0011111111111\n0011111111111\n");
+	str2 = ft_strdup("1111111111111\n");
+	i = 10;
+	k = 0;
+	j = 0;
+	while (str1[++k] != '\0')
+		spectacular[k] = str1[k];
+	k = 0;
+	while (--i > 0)
 	{
-		chunk = ft_strjoin(chunk, str2);
-		i--;
+		while (str2[j] != '\0')
+			spectacular[++k + 28] = str2[++j];
+		j = 0;
 	}
-	return (chunk);
+	free(str1);
+	free(str2);
+	return (spectacular);
 }
 
 int		solve(t_list *pieces)
 {
-	char	*chunk;
 	char	*grid;
 	int		gridsize;
+	char	*spectacular;
 
-	chunk = NULL;
-	grid = stringspectacular(chunk);
+	spectacular = ft_strnew(183);
+	grid = stringspectacular(spectacular);
 	gridsize = 2;
 	fit_piece(grid, gridsize, pieces);
 	print_grid(grid);

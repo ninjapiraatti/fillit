@@ -43,38 +43,6 @@ int		main(int argc, char **argv)
 		return (0);
 	if((raw = buildcheckraw(fd)) == NULL)
 		return (0);
-	ft_putstr(raw);
-	/*
-	while (get_next_line(fd, &line) == 1)
-	{
-		if (ft_strlen(line) > 5)
-			return (0);
-		raw = ft_strjoin(raw, line);
-		i++;
-		ft_putnbr(i);
-		ft_putstr(line);
-		if (validate(raw) == 0)
-		{
-			ft_putstr("Error somewhere.");
-			return (0);
-		}
-		if (line[0] == '\0')
-		{
-			ft_putstr("Newline.");
-			ft_putchar(line[0]);
-		}
-		if (i % 5 == 0)
-		{
-			ft_putstr("Divisible by 4\n");
-			if (validate(raw) == 0)
-			{
-				ft_putstr("Error somewhere.");
-				return (0);
-			}
-			i = 0;
-		}
-	}
-	*/
 	if (validate(raw) == 0)
 		{
 			ft_putstr("Error somewhere.");

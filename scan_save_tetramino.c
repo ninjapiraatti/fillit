@@ -9,8 +9,6 @@ void	ft_foreach(int *tab, int length)
 	while (length > i)
 	{
 		tab[i]--;
-		ft_putnbr(tab[i]);
-		ft_putchar('\n');
 		i++;
 	}
 }
@@ -30,14 +28,13 @@ int		*left(int *tet)
 	return (tet);
 }
 
-int		*top(char *chunk)
+int		*top(char *chunk, int *tet)
 {
 	int i;
 	int j;
-	int *tet;
 	int top;
 
-	tet = ft_memalloc(21);
+	//tet = ft_memalloc(21);
 	i = 0;
 	j = 0;
 	top = 0;
@@ -80,22 +77,24 @@ t_list	*make_list(t_list *first, t_list **alst, t_list *new)
 t_list	*scan_save_tetramino(char *raw, t_list *pieces)
 {
 	char	*chunk;
-	int		tetnum;
 	int		i;
-	int		j;
+	size_t	j;
 	t_list	*first;
+	int		*tet;
 
 	i = 0;
 	j = 0;
 	first = NULL;
-	tetnum = (ft_strlen(raw) / 20);
 	while (raw[i] != '\0')
 	{
-		while (j < tetnum)
+		while (j < (ft_strlen(raw) / 20))
 		{
 			chunk = ft_strsub(raw, (j * 21), 21);
-			ft_putstr(chunk);
-			pieces = make_list(first, &pieces, ft_lstnew(top(chunk), 16/*INT*/));
+			tet = ft_memalloc(21);
+			tet = top(chunk, tet);
+			pieces = make_list(first, &pieces, ft_lstnew(tet, 16));
+			free(tet);
+			free(chunk);
 			j++;
 		}
 		i++;
