@@ -18,7 +18,7 @@ int	asciicheck(char *raw)
 		temp = temp + raw[i];
 		i++;
 	}
-	if (temp % 692 == 0)
+	if ((temp + 10) % 742 == 0)
 		return (1);
 	else
 		return (0);
@@ -32,11 +32,11 @@ int		validate_tetrimino(int start, char *raw)
 
 	i = 0;
 	ncount = 0;
-	while (i < 16)
+	while (i < 21)
 	{
-		if ((raw[start + i] == '#') && ((start + i + 1) % 16 != 0))
+		if ((raw[start + i] == '#') && ((start + i + 1) % 21 != 0))
 		{
-			if ((raw[start + i + 4] == '#') && ((start + i + 1) % 16 < 13))
+			if ((raw[start + i + 5] == '#') && ((start + i + 1) % 21 < 17))
 				ncount += 2;
 			if (raw[start + i + 1] == '#')
 				ncount += 2;
@@ -61,7 +61,7 @@ int		validate_nbrs(char *raw)
 	sharps = 0;
 	while (raw[i] != '\0')
 	{
-		while ((j < 16) && (raw[i + j] != '\0'))
+		while ((j < 21) && (raw[i + j] != '\0'))
 		{
 			if (raw[i + j] == '#')
 				sharps++;
@@ -70,7 +70,10 @@ int		validate_nbrs(char *raw)
 		if (sharps != 4)
 			return (0);
 		else if (validate_tetrimino(i, raw) == 0)
+		{
+			ft_putstr("Tetr fail");
 			return (0);
+		}
 		sharps = 0;
 		i += j;
 		j = 0;
@@ -81,8 +84,14 @@ int		validate_nbrs(char *raw)
 int		validate(char *raw)
 {
 	if (validate_nbrs(raw) == 0)
+	{
+		ft_putstr("Nbrs fail");
 		return (0);
+	}
 	if (asciicheck(raw) == 0)
+	{
+		ft_putstr("Ascii fail");
 		return (0);
+	}
 	return (1);
 }

@@ -11,7 +11,7 @@ int		find_place(int pos, char *grid, int *temp)
 	origpos = 0;
 	while (i < 4 && pos <= 169)
 	{
-		offset = ((temp[i] / 4) * 10);
+		offset = ((temp[i] / 4) * 9);
 		if ((grid[temp[i] + offset + pos] - 48) == 0)
 		{
 			if (i == 0)
@@ -41,12 +41,12 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid)
 		if ((pos = find_place(pos, grid, temp)) < 0)
 			return (0);
 		while (++i < 4)
-			grid[temp[i] + ((temp[i] / 4) * 10) + pos] = tletter;
+			grid[temp[i] + ((temp[i] / 4) * 9) + pos] = tletter;
 		if (recursion(pieces->next, 0, ++tletter, grid) == 0)
 		{
 			i = -1;
 			while (++i < 4)
-				grid[temp[i] + ((temp[i] / 4) * 10) + pos] = '0';
+				grid[temp[i] + ((temp[i] / 4) * 9) + pos] = '0';
 			i = -1;
 			pos++;
 			tletter--;

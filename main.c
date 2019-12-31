@@ -3,9 +3,29 @@
 #include <fcntl.h>
 #include <stdio.h>
 
+char		*buildcheckraw(int fd)
+{
+	char		buf[21];
+	int			bt;
+	char		*temp;
+	char		*raw;
+	int			i;
+
+	bt = 0;
+	i = 0;
+	raw = ft_strnew(0);
+	while ((bt = read(fd, buf, BUFF_SIZE)) > 0)
+	{
+		buf[bt] = '\0';
+		temp = ft_strjoin(raw, buf);
+		free(raw);
+		raw = temp;
+	}
+	return (raw);
+}
+
 int		main(int argc, char **argv)
 {
-	char	*line;
 	char	*raw;
 	int		fd;
 	int 	i;
@@ -21,7 +41,10 @@ int		main(int argc, char **argv)
 	}
 	if ((fd = open(argv[1], O_RDONLY)) != 3)
 		return (0);
-	raw = ft_strnew(0);
+	if((raw = buildcheckraw(fd)) == NULL)
+		return (0);
+	ft_putstr(raw);
+	/*
 	while (get_next_line(fd, &line) == 1)
 	{
 		if (ft_strlen(line) > 5)
@@ -30,20 +53,16 @@ int		main(int argc, char **argv)
 		i++;
 		ft_putnbr(i);
 		ft_putstr(line);
-		/*
 		if (validate(raw) == 0)
 		{
 			ft_putstr("Error somewhere.");
 			return (0);
 		}
-		*/
-		/*
 		if (line[0] == '\0')
 		{
 			ft_putstr("Newline.");
 			ft_putchar(line[0]);
 		}
-		*/
 		if (i % 5 == 0)
 		{
 			ft_putstr("Divisible by 4\n");
@@ -55,6 +74,7 @@ int		main(int argc, char **argv)
 			i = 0;
 		}
 	}
+	*/
 	if (validate(raw) == 0)
 		{
 			ft_putstr("Error somewhere.");
