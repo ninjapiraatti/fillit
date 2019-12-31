@@ -4,16 +4,12 @@ int	asciicheck(char *raw)
 {
 	int		i;
 	int		temp;
-	char	*dot;
-	char	*hashtag;
 	int		nlcounter;
 
 	i = 0;
 	temp = 0;
-	dot = ft_strchr(raw, '.');
-	hashtag = ft_strchr(raw, '#');
 	nlcounter = 0;
-	if (!hashtag && !dot)
+	if (!ft_strchr(raw, '#') && !ft_strchr(raw, '.'))
 		return (0);
 	while (raw[i] != '\0')
 	{
@@ -28,8 +24,6 @@ int	asciicheck(char *raw)
 	i = 0;
 	if ((temp + 10) % 742 == 0)
 		return (1);
-	else
-		return (0);
 	return (0);
 }
 
