@@ -24,11 +24,11 @@ char		*buildcheckraw(int fd)
 	return (raw);
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	char	*raw;
 	int		fd;
-	int 	i;
+	int		i;
 	t_list	*pieces;
 
 	fd = 0;
@@ -41,13 +41,13 @@ int		main(int argc, char **argv)
 	}
 	if ((fd = open(argv[1], O_RDONLY)) != 3)
 		return (0);
-	if((raw = buildcheckraw(fd)) == NULL)
+	if ((raw = buildcheckraw(fd)) == NULL)
 		return (0);
 	if (validate(raw) == 0)
-		{
-			ft_putstr("Error somewhere.");
-			return (0);
-		}
+	{
+		ft_putstr("Error somewhere.");
+		return (0);
+	}
 	solve(scan_save_tetramino(raw, pieces));
 	return (0);
 }

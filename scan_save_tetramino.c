@@ -34,7 +34,6 @@ int		*top(char *chunk, int *tet)
 	int j;
 	int top;
 
-	//tet = ft_memalloc(21);
 	i = 0;
 	j = 0;
 	top = 0;

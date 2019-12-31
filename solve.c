@@ -89,7 +89,7 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 char	*stringspectacular(char *spectacular)
 {
 	int		i;
-	int 	j;
+	int		j;
 	int		k;
 	char	*str1;
 	char	*str2;

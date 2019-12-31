@@ -1,6 +1,6 @@
 #include "libft/includes/libft.h"
 
-int	asciicheck(char *raw)
+int		asciicheck(char *raw)
 {
 	int		i;
 	int		temp;
@@ -63,11 +63,10 @@ int		validate_nbrs(char *raw)
 	sharps = 0;
 	while (raw[i] != '\0')
 	{
-		while ((j < 21) && (raw[i + j] != '\0'))
+		while ((++j < 21) && (raw[i + j] != '\0'))
 		{
 			if (raw[i + j] == '#')
 				sharps++;
-			j++;
 		}
 		if (sharps != 4)
 			return (0);
