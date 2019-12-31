@@ -17,13 +17,13 @@ all:
 debug:
 	gcc -g $(CFLAGS) $(SRCS) -I $(INCS) -L./libft -lft
 
-.PHONY: clean
+.PHONY: clean fclean re exe debug all
 
 clean:
 	rm -f $(NAME)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
