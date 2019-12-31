@@ -54,19 +54,18 @@ int		validate_nbrs(char *raw)
 {
 	int		i;
 	int		j;
-	int		ncount;
 	int		sharps;
 
 	i = 0;
 	j = 0;
-	ncount = 0;
 	sharps = 0;
 	while (raw[i] != '\0')
 	{
-		while ((++j < 21) && (raw[i + j] != '\0'))
+		while ((j < 21) && (raw[i + j] != '\0'))
 		{
 			if (raw[i + j] == '#')
 				sharps++;
+			j++;
 		}
 		if (sharps != 4)
 			return (0);
