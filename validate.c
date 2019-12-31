@@ -6,18 +6,26 @@ int	asciicheck(char *raw)
 	int		temp;
 	char	*dot;
 	char	*hashtag;
+	int		nlcounter;
 
 	i = 0;
 	temp = 0;
 	dot = ft_strchr(raw, '.');
 	hashtag = ft_strchr(raw, '#');
+	nlcounter = 0;
 	if (!hashtag && !dot)
 		return (0);
 	while (raw[i] != '\0')
 	{
 		temp = temp + raw[i];
 		i++;
+		if (raw[i] == '\n')
+			nlcounter = 0;
+		nlcounter++;
+		if (nlcounter > 5)
+			return (0);
 	}
+	i = 0;
 	if ((temp + 10) % 742 == 0)
 		return (1);
 	else
