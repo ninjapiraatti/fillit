@@ -18,7 +18,7 @@ int		asciicheck(char *raw)
 		if (raw[i] == '\n')
 			nlcounter = 0;
 		nlcounter++;
-		if (nlcounter > 5)
+		if (nlcounter > 5 || i > 546)
 			return (0);
 	}
 	i = 0;
