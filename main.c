@@ -39,15 +39,13 @@ int			main(int argc, char **argv)
 		ft_putstr("usage: fillit <filename>.\n");
 		return (0);
 	}
-	if ((fd = open(argv[1], O_RDONLY)) != 3)
-		return (0);
-	if ((raw = buildraw(fd)) == NULL)
-		return (0);
-	if (validate(raw) == 0)
-	{
-		ft_putstr("Error somewhere.");
-		return (0);
-	}
-	solve(scan_save_tetramino(raw, pieces));
+	else if ((fd = open(argv[1], O_RDONLY)) != 3)
+		ft_putstr("Error\n");
+	else if ((raw = buildraw(fd)) == NULL)
+		ft_putstr("Error\n");
+	else if (validate(raw) == 0)
+		ft_putstr("Error\n");
+	else
+		solve(scan_save_tetramino(raw, pieces));
 	return (0);
 }
