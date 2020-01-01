@@ -3,7 +3,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 
-char		*buildcheckraw(int fd)
+char		*buildraw(int fd)
 {
 	char		buf[21];
 	int			bt;
@@ -41,7 +41,7 @@ int			main(int argc, char **argv)
 	}
 	if ((fd = open(argv[1], O_RDONLY)) != 3)
 		return (0);
-	if ((raw = buildcheckraw(fd)) == NULL)
+	if ((raw = buildraw(fd)) == NULL)
 		return (0);
 	if (validate(raw) == 0)
 	{
