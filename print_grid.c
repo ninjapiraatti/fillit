@@ -16,5 +16,5 @@ void	print_grid(char *grid)
 		ft_putchar(grid[i]);
 		i++;
 	}
-	ft_putchar(grid[i]);
+	ft_putchar('\n');
 }
