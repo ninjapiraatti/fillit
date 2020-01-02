@@ -1,17 +1,30 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: malasalm <malasalm@student.hive.fi>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/01/01 14:57:04 by tlouekar          #+#    #+#              #
+#    Updated: 2020/01/01 15:06:12 by malasalm         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = fillit
 
-SRCS = 	main.c \
-		validate.c \
-		solve.c \
-		scan_save_tetramino.c \
-		print_grid.c \
+SRCS = 	fillitsrcs/main.c \
+		fillitsrcs/validate.c \
+		fillitsrcs/solve.c \
+		fillitsrcs/scan_save_tetramino.c \
+		fillitsrcs/print_grid.c \
 
 OBJS = 	validate.o \
 		solve.o \
 		scan_save_tetramino.o \
 		print_grid.o \
+		main.o \
 
-INCS = 	libft/includes/
+INCL = -I ./fillitsrcs -I ./libft/includes/
 
 CFLAGS = -Wall -Wextra -Werror
 
@@ -21,22 +34,17 @@ all: $(NAME)
 
 $(NAME):
 	make -C libft
-	gcc $(CFLAGS) -o $(NAME) $(SRCS) -I $(INCS) $(LIB)
-
-debug:
-	gcc -g $(CFLAGS) $(SRCS) -I $(INCS) $(LIB)
+	gcc $(CFLAGS) -c $(SRCS) $(INCS)
+	gcc $(CFLAGS) $(INCS) $(OBJS) $(LIB) -o $(NAME)
 
 .PHONY: clean fclean re exe debug all
 
 clean:
-	/bin/rm -f $(OBJS)
+	rm -f $(OBJS)
 	make -C libft clean
 
 fclean: clean
 	rm -f $(NAME)
 	make -C libft fclean
 
-re: fclean all
-
-exe:
-	gcc $(CFLAGS) -g $(NAME) $(SRCS) -I $(INCS) $(LIB)
+re: clean all

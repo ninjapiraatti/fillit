@@ -1,4 +1,16 @@
-#include "libft/includes/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solve.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/01 13:14:18 by tlouekar          #+#    #+#             */
+/*   Updated: 2020/01/01 14:14:36 by tlouekar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../libft/includes/libft.h"
 #include "fillit.h"
 
 int		find_place(int pos, char *grid, int *temp)

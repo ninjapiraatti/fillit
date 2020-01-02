@@ -1,4 +1,16 @@
-#include "libft/includes/libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   scan_save_tetramino.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/01 13:13:54 by tlouekar          #+#    #+#             */
+/*   Updated: 2020/01/02 10:39:37 by tlouekar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../libft/includes/libft.h"
 #include "fillit.h"
 
 void	ft_foreach(int *tab, int length)
@@ -37,19 +49,21 @@ int		*top(char *chunk, int *tet)
 	i = 0;
 	j = 0;
 	top = 0;
-	while (chunk[i++] != '\0')
+	while (chunk[i] != '\0')
 	{
 		if (chunk[i] == '#')
 		{
 			top = i / 5;
 			break ;
 		}
+		i++;
 	}
 	i = 0;
-	while (chunk[i++] != '\0')
+	while (chunk[i] != '\0')
 	{
 		if (chunk[i] == '#')
 			tet[j++] = i - top * 5;
+		i++;
 	}
 	j = 0;
 	return (left(tet));
