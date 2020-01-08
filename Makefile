@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: malasalm <malasalm@student.hive.fi>        +#+  +:+       +#+         #
+#    By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/01 14:57:04 by tlouekar          #+#    #+#              #
-#    Updated: 2020/01/01 15:06:12 by malasalm         ###   ########.fr        #
+#    Updated: 2020/01/02 10:48:39 by tlouekar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,4 +47,4 @@ fclean: clean
 	rm -f $(NAME)
 	make -C libft fclean
 
-re: clean all
+re: fclean all

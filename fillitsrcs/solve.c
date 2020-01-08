@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 13:14:18 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/01 14:14:36 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/02 10:46:55 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		find_place(int pos, char *grid, int *temp)
 
 	i = 0;
 	origpos = 0;
-	while (i < 4 && pos <= 169)
+	while (i < 4 && pos <= 182)
 	{
 		offset = ((temp[i] / 4) * 9);
 		if ((grid[temp[i] + offset + pos] - 48) == 0)
@@ -36,7 +36,7 @@ int		find_place(int pos, char *grid, int *temp)
 			pos++;
 		}
 	}
-	if (pos > 169)
+	if (pos > 182)
 		return (-1);
 	return (origpos);
 }
