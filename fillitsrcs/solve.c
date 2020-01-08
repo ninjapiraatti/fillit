@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 13:14:18 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/02 10:46:55 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/08 17:01:47 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,10 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid)
 			tletter--;
 		}
 		else
+		{
+			free(temp);
 			return (1);
+		}
 	}
 	return (1);
 }
@@ -135,6 +138,6 @@ int		solve(t_list *pieces)
 	grid = stringspectacular(spectacular);
 	gridsize = 2;
 	fit_piece(grid, gridsize, pieces);
-	print_grid(grid);
+	print_grid(pieces, grid);
 	return (0);
 }

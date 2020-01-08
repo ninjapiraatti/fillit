@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 13:13:26 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/01 14:13:25 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/08 17:04:40 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ int			main(int argc, char **argv)
 		ft_putstr("error\n");
 	else
 		solve(scan_save_tetramino(raw, pieces));
+	while (1);
 	return (0);
 }
