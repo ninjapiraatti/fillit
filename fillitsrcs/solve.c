@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 13:14:18 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/08 17:01:47 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/09 09:31:17 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid)
 	int			i;
 	int			*temp;
 
-	i = -1;
 	while (pieces != NULL)
 	{
 		temp = pieces->content;
-		if ((pos = find_place(pos, grid, temp)) < 0)
+		if ((pos = find_place(++pos, grid, temp)) < 0)
 			return (0);
+		i = -1;
 		while (++i < 4)
 			grid[temp[i] + ((temp[i] / 4) * 9) + pos] = tletter;
 		if (recursion(pieces->next, 0, ++tletter, grid) == 0)
@@ -59,15 +59,13 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid)
 			i = -1;
 			while (++i < 4)
 				grid[temp[i] + ((temp[i] / 4) * 9) + pos] = '0';
-			i = -1;
-			pos++;
 			tletter--;
 		}
 		else
 		{
 			free(temp);
 			return (1);
-		}
+		}	
 	}
 	return (1);
 }
@@ -83,7 +81,7 @@ int		fit_piece(char *grid, int gridsize, t_list *pieces)
 	tletter = 'A';
 	while (gridsize < 13)
 	{
-		if (recursion(pieces, 0, tletter, grid) == 1)
+		if (recursion(pieces, -1, tletter, grid) == 1)
 			return (1);
 		else
 		{

@@ -6,7 +6,7 @@
 #    By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/01 14:57:04 by tlouekar          #+#    #+#              #
-#    Updated: 2020/01/08 14:58:00 by tlouekar         ###   ########.fr        #
+#    Updated: 2020/01/09 10:04:01 by tlouekar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,7 @@ $(NAME):
 	gcc $(CFLAGS) -c $(SRCS) $(INCS)
 	gcc $(CFLAGS) $(INCS) $(OBJS) $(LIB) -o $(NAME)
 
-debug:
-	gcc $(CFLAGS) $(SRCS) $(INCS) $(LIB) -g -o $(NAME)
-
-.PHONY: clean fclean re exe all
+.PHONY: clean fclean re all
 
 clean:
 	rm -f $(OBJS)

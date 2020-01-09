@@ -6,13 +6,12 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 13:13:26 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/08 17:04:40 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/09 10:01:55 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
 #include "fillit.h"
-#include <fcntl.h>
 
 char		*buildraw(int fd)
 {
@@ -47,7 +46,7 @@ int			main(int argc, char **argv)
 	pieces = NULL;
 	if (argc != 2)
 	{
-		ft_putstr("usage: fillit <filename>.\n");
+		ft_putstr("usage: fillit <filename>\n");
 		return (0);
 	}
 	else if ((fd = open(argv[1], O_RDONLY)) != 3)
@@ -58,6 +57,5 @@ int			main(int argc, char **argv)
 		ft_putstr("error\n");
 	else
 		solve(scan_save_tetramino(raw, pieces));
-	while (1);
 	return (0);
 }
