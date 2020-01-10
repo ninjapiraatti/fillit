@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 13:14:18 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/09 09:31:17 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/10 11:28:08 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid)
 		{
 			free(temp);
 			return (1);
-		}	
+		}
 	}
 	return (1);
 }
