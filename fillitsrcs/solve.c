@@ -6,7 +6,7 @@
 /*   By: tlouekar <tlouekar@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/01 13:14:18 by tlouekar          #+#    #+#             */
-/*   Updated: 2020/01/10 11:28:08 by tlouekar         ###   ########.fr       */
+/*   Updated: 2020/01/13 09:21:48 by tlouekar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		recursion(t_list *pieces, int pos, char tletter, char *grid)
 		i = -1;
 		while (++i < 4)
 			grid[temp[i] + ((temp[i] / 4) * 9) + pos] = tletter;
-		if (recursion(pieces->next, 0, ++tletter, grid) == 0)
+		if (recursion(pieces->next, -1, ++tletter, grid) == 0)
 		{
 			i = -1;
 			while (++i < 4)
